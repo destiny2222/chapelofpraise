@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { FadeIn } from "./ui/fade-in";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 interface Event {
   id: string;
@@ -14,30 +17,41 @@ interface Event {
 }
 
 export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  // autoplay smooth scrolling back and forth
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.scrollBy({ left: 350, behavior: 'smooth' });
-      }else{
-        
-      }
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const sliderRef = useRef<Slider>(null);
 
   const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -350, behavior: 'smooth' });
-    }
+    sliderRef.current?.slickPrev();
   };
 
   const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 350, behavior: 'smooth' });
-    }
+    sliderRef.current?.slickNext();
+  };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
   };
 
   const images = [
@@ -79,58 +93,51 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
         </div>
 
         {/* Cards Slider */}
-        <div 
-          ref={scrollContainerRef}
-          className="flex overflow-x-auto gap-8 snap-x snap-mandatory pb-8 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 hide-scrollbar"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {events.map((event, index) => (
-            <div key={event.id} className="w-[85vw] sm:w-[350px] md:w-[400px] lg:w-[30vw] snap-center md:snap-start shrink-0">
-              <FadeIn delay={index * 0.1}>
-                <div className="group cursor-pointer flex flex-col gap-6">
-                  {/* Image */}
-                  <div className="w-full h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden relative border border-[#F1EFE7]/10">
-                    <img 
-                      src={images[index % images.length]} 
-                      alt={event.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    {/* Dark overlay gradient */}
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex flex-col gap-3">
-                    <div className="text-[#F1EFE7]/80 text-xs font-bold tracking-widest uppercase">
-                      {event.date ? new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'DATE TBA'}
+        <div className="mt-8 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+          <Slider ref={sliderRef} {...settings}>
+            {events.map((event, index) => (
+              <div key={event.id} className="px-4 outline-none">
+                <FadeIn delay={index * 0.1}>
+                  <div className="group cursor-pointer flex flex-col gap-6">
+                    {/* Image */}
+                    <div className="w-full h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden relative border border-[#F1EFE7]/10">
+                      <img 
+                        src={images[index % images.length]} 
+                        alt={event.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      {/* Dark overlay gradient */}
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                     </div>
-                    <h3 className="text-2xl font-bold text-[#F1EFE7] leading-tight group-hover:text-accent-400 transition-colors">
-                      {event.title}
-                    </h3>
                     
-                    {/* "Avatar" + Location */}
-                    <div className="flex items-center gap-3 mt-2">
-                      <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-accent-500 font-bold text-xs border border-accent-500/30">
-                        CP
+                    {/* Content */}
+                    <div className="flex flex-col gap-3">
+                      <div className="text-[#F1EFE7]/80 text-xs font-bold tracking-widest uppercase">
+                        {event.date ? new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : 'DATE TBA'}
                       </div>
-                      <span className="text-[#F1EFE7]/70 text-sm font-medium">
-                        chapelofpraise
-                      </span>
+                      <h3 className="text-2xl font-bold text-[#F1EFE7] leading-tight group-hover:text-accent-400 transition-colors">
+                        {event.title}
+                      </h3>
+                      
+                      {/* "Avatar" + Location */}
+                      <div className="flex items-center gap-3 mt-2">
+                        <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-accent-500 font-bold text-xs border border-accent-500/30">
+                          CP
+                        </div>
+                        <span className="text-[#F1EFE7]/70 text-sm font-medium">
+                          chapelofpraise
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </FadeIn>
-            </div>
-          ))}
-          <style dangerouslySetInnerHTML={{__html: `
-            .hide-scrollbar::-webkit-scrollbar {
-              display: none;
-            }
-          `}} />
+                </FadeIn>
+              </div>
+            ))}
+          </Slider>
         </div>
 
         {/* Mobile View All */}
-        <div className="mt-8 flex items-center justify-center gap-4 md:hidden">
+        <div className="mt-12 flex items-center justify-center gap-4 md:hidden">
           <Link href="/events" className="bg-[#F1EFE7] text-brand-900 px-8 py-4 font-bold tracking-wide hover:bg-white transition-colors text-sm uppercase">
             View All Events
           </Link>

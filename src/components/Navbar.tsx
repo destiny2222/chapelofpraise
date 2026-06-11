@@ -93,7 +93,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
-          <Link href="/donate" className="flex items-center">
+          <Link href="/give" className="flex items-center">
             <GlowButton>GIVE</GlowButton>
           </Link>
         </div>
@@ -164,9 +164,9 @@ export default function Navbar() {
             <Link href="/events" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               Programs 
             </Link>
-            {/* <Link href="/ministries" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
+            <Link href="/ministries" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               Ministries 
-            </Link> */}
+            </Link>
             <Link href="/lsm" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               LSM
             </Link>
@@ -174,7 +174,7 @@ export default function Navbar() {
               Contact 
             </Link>
             
-            <Link href="/donate" onClick={() => setIsMobileMenuOpen(false)} className="mt-6 animate-menu-item" style={{ animationDelay: '750ms' }}>
+            <Link href="/give" onClick={() => setIsMobileMenuOpen(false)} className="mt-6 animate-menu-item" style={{ animationDelay: '750ms' }}>
               <GlowButton>Give</GlowButton>
             </Link>
           </div>

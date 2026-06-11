@@ -22,7 +22,7 @@ export default function PageHeader({
   subtitle,
   overline,
   breadcrumbs, 
-  backgroundImage = "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80" 
+  backgroundImage = "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=800" 
 }: PageHeaderProps) {
   return (
     <div className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 flex items-center justify-center min-h-[350px] sm:min-h-[450px] overflow-hidden">
