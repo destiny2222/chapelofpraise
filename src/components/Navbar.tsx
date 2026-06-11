@@ -181,6 +181,9 @@ export default function Navbar() {
             <Link href="/ministries" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               Ministries 
             </Link>
+            <Link href="/phase" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
+              Phase 1
+            </Link>
             <Link href="/lsm" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               LSM
             </Link>
