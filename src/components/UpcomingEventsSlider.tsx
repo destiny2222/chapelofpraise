@@ -48,17 +48,17 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
   ];
 
   return (
-    <section className="bg-brand-900 py-24 sm:py-32 relative z-20">
+    <section className="bg-brand-900 py-24 sm:py-32 relative z-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header row: Title on left, Arrows on right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="flex flex-col items-start gap-4">
             {/* Badge */}
-            <div className="bg-[#F1EFE7] text-brand-900 text-sm font-black tracking-widest uppercase px-4 py-2">
+            <div className="bg-[#F1EFE7] text-brand-900 text-[10px] lg:text-sm font-black tracking-widest uppercase px-4 py-2">
               Featured Events
             </div>
             {/* Huge Title */}
-            <h2 className="font-sans text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#F1EFE7]">
+            <h2 className="font-sans text-[28px] md:text-7xl font-black uppercase tracking-tighter text-[#F1EFE7]">
               Upcoming Events
             </h2>
           </div>
@@ -85,7 +85,7 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {events.map((event, index) => (
-            <div key={event.id} className="min-w-[85vw] md:min-w-[45vw] lg:min-w-[30vw] snap-center md:snap-start shrink-0">
+            <div key={event.id} className="w-[85vw] sm:w-[350px] md:w-[400px] lg:w-[30vw] snap-center md:snap-start shrink-0">
               <FadeIn delay={index * 0.1}>
                 <div className="group cursor-pointer flex flex-col gap-6">
                   {/* Image */}

@@ -8,8 +8,8 @@ import { FadeIn } from "../components/ui/fade-in";
 import { AnimatedText } from "../components/ui/animated-shiny-text";
 import ShimmerText from "../components/ui/shimmer-text";
 import { TextRevealByWord } from "../components/ui/text-reveal";
-import UpcomingEventsSlider from "../components/UpcomingEventsSlider";
-import LatestSermonsSlider from "../components/LatestSermonsSlider";
+import UpcomingEventsSlider from "../components/UpcomingEventsSlider"; 
+import ModernSermonsSlider from "../components/ModernSermonsSlider";
 
 export default function Home() {
   // Mock data for MVP
@@ -96,16 +96,16 @@ export default function Home() {
       <section className="py-20 lg:py-32 bg-white overflow-hidden relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            
+
             {/* Left Column - Image */}
             <FadeIn direction="right" className="relative">
               {/* Decorative Dot Pattern */}
               <div className="absolute -bottom-8 -right-8 sm:-bottom-12 sm:-right-12 w-48 h-48 sm:w-64 sm:h-64 z-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #cbd5e1 2px, transparent 0)', backgroundSize: '16px 16px' }}></div>
-              
+
               <div className="relative aspect-square md:aspect-[4/5] rounded-sm overflow-hidden shadow-2xl z-10">
-                <img 
-                  src="/pastor.jpg" 
-                  alt="Church interior" 
+                <img
+                  src="/pastor.jpg"
+                  alt="Church interior"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -115,15 +115,15 @@ export default function Home() {
             <div className="flex flex-col gap-6">
               <FadeIn delay={0.1}>
                 <div className="flex items-center gap-2">
-                  <AnimatedText 
-                    text="ABOUT US" 
+                  <AnimatedText
+                    text="ABOUT US"
                     className="justify-start"
                     textClassName="font-bold tracking-widest uppercase text-sm"
                     gradientColors="linear-gradient(90deg, #AB8842, #EAC170, #AB8842)"
                   />
                 </div>
               </FadeIn>
-              
+
               <FadeIn delay={0.2}>
                 <h2>
                   <ShimmerText className="text-2xl md:text-3xl lg:text-3xl font-black text-brand-900 leading-[1.1] tracking-tight w-full block" duration={2.5} delay={1}>
@@ -131,7 +131,7 @@ export default function Home() {
                   </ShimmerText>
                 </h2>
               </FadeIn>
-              
+
               {/* Red Dividers */}
               <FadeIn delay={0.3}>
                 <div className="flex items-center gap-2 mt-2">
@@ -141,14 +141,14 @@ export default function Home() {
               </FadeIn>
 
               <FadeIn delay={0.4}>
-                <TextRevealByWord 
+                <TextRevealByWord
                   text="We are a church: a community of people God has chosen and preserved for Himself, who love, follow, learn from, and worship God together. God sends us out to proclaim the gospel and embody Christ’s coming kingdom by the quality of our life together and our love for one another."
                   textClassName="text-lg leading-relaxed mt-2"
                 />
               </FadeIn>
 
               <FadeIn delay={0.5}>
-                <TextRevealByWord 
+                <TextRevealByWord
                   text="The gospel, or the good news, is the message of the Bible that God is redeeming His fallen creation through the coming of His kingdom in the person and work of Jesus Christ."
                   textClassName="text-lg leading-relaxed mt-2"
                 />
@@ -169,14 +169,14 @@ export default function Home() {
       {/* Our Services Section */}
       <section className="relative py-24 sm:py-32 z-20 overflow-hidden bg-[#FAF9F6]">
         {/* Background Image */}
-        <img 
-          src="/nathan-mullet.jpg" 
-          alt="Worship background" 
+        <img
+          src="/nathan-mullet.jpg"
+          alt="Worship background"
           className="absolute inset-0 w-full h-full object-cover opacity-[0.15] mix-blend-multiply pointer-events-none"
         />
-        
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          
+
           {/* Section Header */}
           <div className="text-center mb-20">
             <FadeIn>
@@ -197,7 +197,7 @@ export default function Home() {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-            
+
             {/* Card 1 */}
             <FadeIn delay={0.2} direction="up" className="h-full">
               <div className="group bg-white rounded-[2rem] p-10 md:p-14 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center">
@@ -248,9 +248,9 @@ export default function Home() {
       <section className="relative py-32 sm:py-48 z-20 overflow-hidden">
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&q=80&w=2000" 
-            alt="Giving background" 
+          <img
+            src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&q=80&w=2000"
+            alt="Giving background"
             className="w-full h-full object-cover  "
           />
           <div className="absolute inset-0 bg-[#16202A]/85"></div>
@@ -274,8 +274,8 @@ export default function Home() {
             </p> */}
 
             {/* Donate Button */}
-            <Link 
-              href="/give" 
+            <Link
+              href="/give"
               className="inline-block border-2 border-accent-500 bg-transparent text-white px-10 py-4 text-sm font-bold tracking-[0.2em] uppercase hover:bg-accent-500 transition-all duration-300"
             >
               Donate Online
@@ -284,8 +284,7 @@ export default function Home() {
         </div>
       </section>
       {/* Latest Sermons */}
-      {/* Latest Sermons Slider Component */}
-      <LatestSermonsSlider sermons={recentSermons} />
+      <ModernSermonsSlider sermons={recentSermons} />
     </>
   );
 }
