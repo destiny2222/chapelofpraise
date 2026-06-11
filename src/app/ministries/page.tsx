@@ -53,8 +53,7 @@ export default function Ministries() {
       <PageHeader 
         title="Our Ministries" 
         subtitle="At Chapel of Praise, we believe in growing together through fellowship, discipleship, and community. Find your place in one of our ministries."
-        breadcrumbs={[{ label: "Ministries", href: "/ministries" }]} 
-        // backgroundImage="https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&q=80"
+        breadcrumbs={[{ label: "Ministries", href: "/ministries" }]}  
       />
 
       <section className="mt-40 px-6 lg:px-8 max-w-7xl mx-auto">
@@ -92,7 +91,7 @@ export default function Ministries() {
                 </div>
 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-500 mb-6 text-white/90 px-2">
+                  <div className="opacity-100 h-auto md:opacity-0 md:h-0 overflow-hidden md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500 mb-6 text-white/90 px-2">
                     <p className="mb-4 text-sm leading-relaxed">{ministry.description}</p>
                     <p className="text-xs font-semibold tracking-wider text-accent-500">{ministry.meetingTime.toUpperCase()}</p>
                   </div>
