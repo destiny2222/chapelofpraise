@@ -17,6 +17,20 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Chapel of Praise | Modern Church",
   description: "Transforming lives through the love of Christ. Join us this Sunday!",
+  icons: {
+    icon: '/logo.png',
+  },
+  openGraph: {
+    title: "Chapel of Praise | Modern Church",
+    description: "Transforming lives through the love of Christ. Join us this Sunday!",
+    images: ['/logo.png'],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chapel of Praise | Modern Church",
+    description: "Transforming lives through the love of Christ. Join us this Sunday!",
+    images: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({
