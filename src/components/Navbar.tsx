@@ -5,9 +5,16 @@ import { Menu, X, MapPin, Mail, Globe, Search, Plus, ArrowRight } from 'lucide-r
 import { GlowButton } from './ui/shiny-button-1';
 import { useState, useEffect } from 'react';
 
+import { usePathname } from 'next/navigation';
+
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/admin')) {
+    return null;
+  }
 
   // Add scroll listener to make navbar solid when scrolled down
   useEffect(() => {
@@ -63,10 +70,7 @@ export default function Navbar() {
           </Link>
           <Link href="/services" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Services 
-          </Link>
-          {/* <Link href="/events" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
-            Programs 
-          </Link> */}
+          </Link> 
           <Link href="/ministries" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Ministries 
           </Link>
@@ -79,7 +83,7 @@ export default function Navbar() {
               <Plus className="h-3.5 w-3.5 opacity-70" />
             </button>
             <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 rounded-md bg-brand-900 border border-white/10 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <Link href="/live" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
+              <Link href="https://vimeo.com/chapelofpraise" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
                 Live
               </Link>
               <Link href="/messages" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
@@ -170,6 +174,7 @@ export default function Navbar() {
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               Contact 
             </Link>
+            {/* live stream dropdown */}
             
             <Link href="/give" onClick={() => setIsMobileMenuOpen(false)} className="mt-6 animate-menu-item" style={{ animationDelay: '750ms' }}>
               <GlowButton>Give</GlowButton>

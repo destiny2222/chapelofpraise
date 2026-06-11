@@ -5,7 +5,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export default function GraduationCarousel() {
+type GraduationImage = {
+  src: string;
+  alt: string;
+};
+
+export default function GraduationCarousel({ images }: { images: GraduationImage[] }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -31,12 +36,7 @@ export default function GraduationCarousel() {
     ]
   };
 
-  const images = [
-    { src: "/lsm.jpg", alt: "Graduation 1" },
-    { src: "/hero-bg.jpg", alt: "Graduation 2" },
-    { src: "/lsm.jpg", alt: "Graduation 3" },
-    { src: "/hero-bg.jpg", alt: "Graduation 4" },
-  ];
+  // The images array is now passed as a prop from the Server Component
 
   return (
     <div className="graduation-carousel-wrapper">

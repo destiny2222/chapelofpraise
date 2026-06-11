@@ -76,9 +76,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessibility Focus Rings */
-*:focus-visible {
-  outline: 4px solid var(--color-accent-500);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
+ 

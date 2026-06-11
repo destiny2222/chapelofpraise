@@ -1,8 +1,16 @@
+"use client";
+
 import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { ChevronRight, Calendar, MapPin, Phone, Mail } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/admin')) {
+    return null;
+  }
   return (
     <footer className="bg-[#0b132b] text-brand-50 border-t border-white/5" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">

@@ -10,60 +10,17 @@ import ShimmerText from "../components/ui/shimmer-text";
 import { TextRevealByWord } from "../components/ui/text-reveal";
 import UpcomingEventsSlider from "../components/UpcomingEventsSlider"; 
 import ModernSermonsSlider from "../components/ModernSermonsSlider";
+import { supabase } from "../lib/supabase";
 
-export default function Home() {
-  // Mock data for MVP
-  const upcomingEvents = [
-    {
-      id: "1",
-      title: "Sunday Worship Service",
-      date: "2026-06-14T09:00:00Z",
-      time: "9:00 AM - 11:30 AM",
-      location: "Main Auditorium",
-      description: "Join us for our weekly Sunday worship service full of praise, worship, and an inspiring message."
-    },
-    {
-      id: "2",
-      title: "Midweek Bible Study",
-      date: "2026-06-17T18:30:00Z",
-      time: "6:30 PM - 8:00 PM",
-      location: "Fellowship Hall",
-      description: "Dive deeper into the Word of God with our interactive midweek Bible study sessions."
-    },
-    {
-      id: "3",
-      title: "Youth Retreat 2026",
-      date: "2026-06-25T14:00:00Z",
-      time: "2:00 PM - 8:00 PM",
-      location: "Camp Hope",
-      description: "A transformative weekend for the youth to connect, worship, and grow in their faith."
-    }
-  ];
+export const dynamic = 'force-dynamic';
 
-  const recentSermons = [
-    {
-      id: "1",
-      title: "Walking in Faith",
-      preacher: "Pastor John Doe",
-      date: "2026-06-07T10:00:00Z",
-      excerpt: "Discover what it means to truly walk by faith and not by sight in this challenging modern world."
-    },
-    {
-      id: "2",
-      title: "The Power of Grace",
-      preacher: "Rev. Sarah Smith",
-      date: "2026-05-31T10:00:00Z",
-      excerpt: "An exploration of God's unmerited favor and how it transforms our daily lives."
-    },
-    {
-      id: "3",
-      title: "Prayer Meeting",
-      preacher: "Pastor John Doe",
-      date: "2026-05-24T10:00:00Z",
-      excerpt: "Join us as we come together in prayer to lift up our community and our nation."
-    }
+export default async function Home() {
+  // Fetch data from Supabase
+  const { data: eventsData } = await supabase.from('events').select('*').order('date', { ascending: true }).limit(6);
+  const { data: sermonsData } = await supabase.from('sermons').select('*').order('date', { ascending: false }).limit(6);
 
-  ];
+  const upcomingEvents = eventsData || [];
+  const recentSermons = sermonsData || [];
 
   return (
     <>

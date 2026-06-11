@@ -3,8 +3,25 @@ import { FadeIn } from "../../components/ui/fade-in";
 import PageHeader from "../../components/PageHeader";
 import { Target, Eye, BookOpen, Handshake, GraduationCap, ShieldCheck, Calendar, Clock, Award, ChevronDown } from "lucide-react";
 import GraduationCarousel from "../../components/GraduationCarousel";
+import { supabase } from "../../lib/supabase";
 
-export default function LSM() {
+export const dynamic = 'force-dynamic';
+
+export default async function LSM() {
+  const { data } = await supabase.from('lsm_graduations').select('*').order('created_at', { ascending: true });
+  
+  const formattedData = data?.map(d => ({
+    src: d.image || d.src || '/lsm.jpg',
+    alt: d.alt || 'Graduation Image'
+  }))
+
+  const graduationImages = formattedData && formattedData.length > 0 ? formattedData : [
+    { src: "/lsm.jpg", alt: "Graduation 1" },
+    { src: "/hero-bg.jpg", alt: "Graduation 2" },
+    { src: "/lsm.jpg", alt: "Graduation 3" },
+    { src: "/hero-bg.jpg", alt: "Graduation 4" },
+  ];
+
   return (
     <div className="bg-white selection:bg-accent-500 selection:text-white pb-24">
       <PageHeader 
@@ -315,7 +332,7 @@ export default function LSM() {
 
           <div className="px-4">
             <FadeIn delay={0.1}>
-              <GraduationCarousel />
+              <GraduationCarousel images={graduationImages} />
             </FadeIn>
           </div>
         </div>

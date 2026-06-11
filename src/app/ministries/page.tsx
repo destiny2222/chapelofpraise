@@ -2,52 +2,15 @@ import PageHeader from "../../components/PageHeader";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "../../components/ui/fade-in";
 
-const ministries = [
-  {
-    name: "Men of Honor",
-    description: "A brotherhood of men committed to living with integrity, purpose, and strength in Christ. Join us as we sharpen one another and grow as leaders in our homes, church, and community.",
-    meetingTime: "Open To All Men",
-    image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "Diamond Ladies",
-    description: "A sisterhood of women discovering their God-given brilliance. Through fellowship, prayer, and the word, we encourage one another to shine brightly in every season of life.",
-    meetingTime: "Open To All Women",
-    image: "https://images.unsplash.com/photo-1521120413309-42e7eada0334?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "Young Couples Fellowship",
-    description: "Building strong foundations for marriages in their first decade. Connect with other young couples navigating the joys and challenges of early marriage through biblical wisdom and community.",
-    meetingTime: "Young Marriages 1-10 Years",
-    image: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "God's Armor Girls Quest",
-    description: "Equipping young women with the full armor of God. Through mentorship, fellowship, and discipleship, our GQ ministry helps girls grow in faith, confidence, and purpose.",
-    meetingTime: "GQ Ministry",
-    image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "NextGen Ministry",
-    description: "Our next generation is the future of the church. Through worship, teaching, and fellowship, we're raising up leaders who will impact the world for Christ.",
-    meetingTime: "Upper Room: First Thursday • 7:30 - 9:00 PM",
-    image: "https://images.unsplash.com/photo-1523580494112-071d16211101?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "Children's Ministry",
-    description: "Age-appropriate programs for children to learn about God's love in a fun, safe, and nurturing environment. Every child matters at Chapel of Praise.",
-    meetingTime: "Every Sunday during Worship Service",
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80"
-  },
-  {
-    name: "Worship & Choir Ministry",
-    description: "Our worship team leads the congregation into God's presence every Sunday. If you have a heart for worship and a desire to serve through music, we'd love to have you join us for rehearsal.",
-    meetingTime: "Fridays • 7:30 PM - 10:00 PM",
-    image: "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&fit=crop&q=80"
-  }
-];
+import { supabase } from "../../lib/supabase";
 
-export default function Ministries() {
+
+export const dynamic = 'force-dynamic';
+
+export default async function Ministries() {
+  const { data: ministriesData } = await supabase.from('ministries').select('*').order('created_at', { ascending: true });
+  const ministries = ministriesData || [];
+
   return (
     <div className="bg-[#FAF9F6] selection:bg-[#C8102E] selection:text-white pb-32">
       <PageHeader 
@@ -93,7 +56,7 @@ export default function Ministries() {
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="opacity-100 h-auto md:opacity-0 md:h-0 overflow-hidden md:group-hover:h-auto md:group-hover:opacity-100 transition-all duration-500 mb-6 text-white/90 px-2">
                     <p className="mb-4 text-sm leading-relaxed">{ministry.description}</p>
-                    <p className="text-xs font-semibold tracking-wider text-accent-500">{ministry.meetingTime.toUpperCase()}</p>
+                    {ministry.meeting_time && <p className="text-xs font-semibold tracking-wider text-accent-500">{ministry.meeting_time.toUpperCase()}</p>}
                   </div>
                    
                 </div>
