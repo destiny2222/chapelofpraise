@@ -67,9 +67,9 @@ export default function Navbar() {
           <Link href="/events" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Programs 
           </Link>
-          {/* <Link href="/ministries" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
+          <Link href="/ministries" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Ministries 
-          </Link> */}
+          </Link>
           <Link href="/lsm" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             LSM  
           </Link> 

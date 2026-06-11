@@ -1,69 +1,161 @@
+import { FadeIn } from "../../components/ui/fade-in";
+import PageHeader from "../../components/PageHeader";
+import { MapPin, Headphones, Mail, Clock } from "lucide-react";
+import Image from "next/image";
+
 export default function Contact() {
   return (
-    <div className="bg-slate-50 py-16 sm:py-24 min-h-screen">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl font-serif">Contact Us</h2>
-          <p className="mt-4 text-lg leading-8 text-slate-600">
-            Have questions? Want to learn more? We'd love to hear from you.
-          </p>
-        </div>
-        
-        <div className="mx-auto mt-16 grid max-w-7xl grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
-          {/* Info & Map */}
-          <div>
-            <h3 className="text-2xl font-bold text-slate-900 font-serif mb-6">Our Information</h3>
-            <dl className="space-y-6 text-base leading-7 text-slate-600 mb-10">
-              <div className="flex gap-x-4">
-                <dt className="font-semibold text-slate-900">Address:</dt>
-                <dd>123 Faith Avenue, Grace City, GC 12345</dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="font-semibold text-slate-900">Phone:</dt>
-                <dd>+1 (555) 123-4567</dd>
-              </div>
-              <div className="flex gap-x-4">
-                <dt className="font-semibold text-slate-900">Email:</dt>
-                <dd>info@chapelofpraise.com</dd>
-              </div>
-            </dl>
-            
-            {/* Mock Map Embed */}
-            <div className="aspect-w-16 aspect-h-9 w-full bg-slate-200 rounded-2xl overflow-hidden relative">
-              {/* Replace with real iframe */}
-              <div className="absolute inset-0 flex items-center justify-center text-slate-500 font-medium border-2 border-dashed border-slate-300 m-2 rounded-xl">
-                Google Maps Embed Placeholder
+    <div className="bg-[#FAF9F6] selection:bg-[#C8102E] selection:text-white pb-32">
+      <PageHeader 
+        title="Contact Us" 
+        breadcrumbs={[{ label: "Contact Us", href: "/contact" }]} 
+      />
+
+      {/* Info Cards Section (Overlapping the header) */}
+      <section className="relative mt-10 md:-mt-20 z-20 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-stretch">
+          
+          {/* Location Card */}
+          <FadeIn delay={0.1} className="h-full">
+            <div className="bg-brand-900 rounded-[2rem] p-10 text-center text-white h-full shadow-2xl relative overflow-hidden group hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] border border-transparent hover:border-accent-500/50 transition-all duration-500 flex flex-col justify-center">
+              <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 mix-blend-screen"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-500/20 group-hover:border-accent-500/50 transition-colors duration-500">
+                  <MapPin className="w-8 h-8 text-accent-500 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold font-serif mb-4">Our Location</h3>
+                <p className="text-sm text-slate-300 font-light leading-relaxed px-4 group-hover:text-white transition-colors duration-500">
+                  15821 Greenwood Road,<br/>South Holland, IL 60473
+                </p>
               </div>
             </div>
+          </FadeIn>
+
+          {/* Phone Card */}
+          <FadeIn delay={0.2} className="h-full">
+            <div className="bg-brand-900 rounded-[2rem] p-10 text-center text-white h-full shadow-2xl relative overflow-hidden group hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] border border-transparent hover:border-accent-500/50 transition-all duration-500 flex flex-col justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-900 to-[#0A1220]"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519671482749-fd098e382307?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 mix-blend-screen"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-500/20 group-hover:border-accent-500/50 transition-colors duration-500">
+                  <Headphones className="w-8 h-8 text-accent-500 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold font-serif mb-4">Phone Number</h3>
+                <p className="text-sm text-slate-300 font-light leading-relaxed group-hover:text-white transition-colors duration-500">
+                  708-201-1192<br/>
+                  708-201-1193
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Email Card */}
+          <FadeIn delay={0.3} className="h-full">
+            <div className="bg-brand-900 rounded-[2rem] p-10 text-center text-white h-full shadow-2xl relative overflow-hidden group hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] border border-transparent hover:border-accent-500/50 transition-all duration-500 flex flex-col justify-center">
+              <div className="absolute inset-0 bg-gradient-to-bl from-brand-900 to-[#0A1220]"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 mix-blend-screen"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-500/20 group-hover:border-accent-500/50 transition-colors duration-500">
+                  <Mail className="w-8 h-8 text-accent-500 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold font-serif mb-4">Email Address</h3>
+                <p className="text-sm text-slate-300 font-light leading-relaxed group-hover:text-white transition-colors duration-500">
+                  checchapelofpraise@gmail.com
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Service Times Card */}
+          <FadeIn delay={0.4} className="h-full">
+            <div className="bg-brand-900 rounded-[2rem] p-10 text-center text-white h-full shadow-2xl relative overflow-hidden group hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(212,175,55,0.15)] border border-transparent hover:border-accent-500/50 transition-all duration-500 flex flex-col justify-center">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand-900 to-[#0A1220]"></div>
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-500 mix-blend-screen"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-accent-500/20 group-hover:border-accent-500/50 transition-colors duration-500">
+                  <Clock className="w-8 h-8 text-accent-500 group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold font-serif mb-4">Service Times</h3>
+                <p className="text-sm text-slate-300 font-light leading-relaxed group-hover:text-white transition-colors duration-500">
+                  Bible Class: Sundays 10:00 AM<br/>
+                  Worship: Sundays 11:00 AM
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Form & Image Section */}
+      <section className="mt-24 px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col lg:flex-row border border-slate-100">
+          
+          {/* Form Side */}
+          <div className="flex-1 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+            <FadeIn>
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-900 mb-8">Send Us a Message</h2>
+              <form className="space-y-5">
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="Name" 
+                    required 
+                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="email" 
+                    placeholder="Email" 
+                    required 
+                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="tel" 
+                    placeholder="Phone" 
+                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
+                  />
+                </div>
+                <div>
+                  <textarea 
+                    placeholder="Your message" 
+                    rows={6} 
+                    required 
+                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400 transition-all bg-transparent outline-none resize-none shadow-sm"
+                  />
+                </div>
+                <div className="pt-2">
+                  <button 
+                    type="submit" 
+                    className="bg-[#D4AF37] hover:bg-[#B8962E] text-white font-bold tracking-wider px-10 py-4 rounded transition-colors shadow-md hover:shadow-lg"
+                  >
+                    Send Now
+                  </button>
+                </div>
+              </form>
+            </FadeIn>
           </div>
 
-          {/* Form */}
-          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
-            <h3 className="text-xl font-bold text-slate-900 mb-8">Send us a message</h3>
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold leading-6 text-slate-900">Name</label>
-                <div className="mt-2.5">
-                  <input type="text" name="name" id="name" required className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-slate-900">Email</label>
-                <div className="mt-2.5">
-                  <input type="email" name="email" id="email" required className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6" />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold leading-6 text-slate-900">Message</label>
-                <div className="mt-2.5">
-                  <textarea name="message" id="message" rows={4} required className="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-brand-600 sm:text-sm sm:leading-6" />
-                </div>
-              </div>
-              <button type="submit" className="w-full rounded-md bg-brand-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-500">Send Message</button>
-            </form>
+          {/* Image Side */}
+          <div className="flex-1 relative min-h-[400px] lg:block hidden lg:min-h-auto">
+            <Image 
+              src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80"
+              alt="Person using phone at church"
+              fill
+              className="object-cover"
+            />
           </div>
+
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }
