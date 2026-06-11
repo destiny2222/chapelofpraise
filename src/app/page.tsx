@@ -240,8 +240,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      {/* Upcoming Events Slider Component */}
+      {/* Upcoming Events */} 
       <UpcomingEventsSlider events={upcomingEvents} />
 
       {/* Give Online Section */}

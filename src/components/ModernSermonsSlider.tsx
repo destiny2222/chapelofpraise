@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { FadeIn } from "./ui/fade-in";
 import { Play, ArrowRight, Clock, User } from "lucide-react";
@@ -20,40 +20,35 @@ interface Sermon {
 
 export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) {
   const sliderRef = useRef<Slider>(null);
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
-  const scrollLeft = () => {
-    sliderRef.current?.slickPrev();
-  };
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 768) setSlidesToShow(1);
+      else if (window.innerWidth < 1024) setSlidesToShow(2);
+      else setSlidesToShow(3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
-  const scrollRight = () => {
-    sliderRef.current?.slickNext();
-  };
+  const isMobile = slidesToShow === 1;
+
+  const scrollLeft = () => sliderRef.current?.slickPrev();
+  const scrollRight = () => sliderRef.current?.slickNext();
 
   const settings = {
-    dots: false,
+    dots: isMobile,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
+    swipe: true,
+    touchMove: true,
   };
 
   const images = [
@@ -66,8 +61,13 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
 
   return (
     <section className="py-24 bg-[#FAF9F6] relative overflow-hidden border-t border-slate-100">
+      <style>{`
+        .sermons-slider .slick-dots { bottom: -36px; }
+        .sermons-slider .slick-dots li button:before { font-size: 8px; color: #cbd5e1; opacity: 1; }
+        .sermons-slider .slick-dots li.slick-active button:before { color: #d97706; opacity: 1; }
+      `}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
@@ -86,10 +86,10 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
               </p>
             </FadeIn>
           </div>
-          
+
           {/* Navigation Arrows */}
-          <FadeIn className="flex items-center gap-3 hidden md:flex">
-            <button 
+          <FadeIn className="flex items-center gap-3">
+            <button
               onClick={scrollLeft}
               className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-[0_4px_12px_rgb(0,0,0,0.03)] flex items-center justify-center text-slate-500 hover:text-accent-600 hover:border-accent-200 hover:shadow-md transition-all duration-300"
             >
@@ -97,7 +97,7 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button 
+            <button
               onClick={scrollRight}
               className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-[0_4px_12px_rgb(0,0,0,0.03)] flex items-center justify-center text-slate-500 hover:text-accent-600 hover:border-accent-200 hover:shadow-md transition-all duration-300"
             >
@@ -109,18 +109,17 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
         </div>
 
         {/* Slider Container */}
-        <div className="mt-8 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+        <div className="sermons-slider mt-8 pb-12 md:pb-0 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
           <Slider ref={sliderRef} {...settings}>
             {sermons.map((sermon, index) => (
               <div key={sermon.id} className="px-4 py-4 outline-none">
                 <FadeIn delay={index * 0.1} className="h-full">
-                  {/* Modern SaaS Card */}
                   <div className="group h-full flex flex-col bg-white rounded-[1.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden cursor-pointer">
-                    
-                    {/* Image Container with Play overlay */}
+
+                    {/* Image */}
                     <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-                      <img 
-                        src={sermon.image || images[index % images.length]} 
+                      <img
+                        src={sermon.image || images[index % images.length]}
                         alt={sermon.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
@@ -129,8 +128,6 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                           <Play className="w-7 h-7 ml-1" fill="currentColor" />
                         </div>
                       </div>
-                      
-                      {/* Top Badge */}
                       <div className="absolute top-4 left-4">
                         <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-xs font-bold text-brand-900 uppercase tracking-widest rounded-full shadow-sm">
                           {sermon.tag || 'Sermon'}
@@ -138,23 +135,25 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                       </div>
                     </div>
 
-                    {/* Card Content */}
+                    {/* Content */}
                     <div className="p-8 flex flex-col flex-grow">
                       <div className="flex items-center gap-4 text-xs font-semibold text-slate-500 mb-4 uppercase tracking-wider">
                         <div className="flex items-center gap-1.5">
                           <Clock className="w-4 h-4 text-accent-500" />
-                          <span className='text-[8px] lg:text-sm'>{new Date(sermon.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                          <span className="text-xs sm:text-sm">
+                            {new Date(sermon.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          </span>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <User className="w-4 h-4 text-accent-500" />
-                          <span className='text-[8px] lg:text-sm'>{sermon.preacher}</span>
+                          <span className="text-xs sm:text-sm">{sermon.preacher}</span>
                         </div>
                       </div>
-                      
+
                       <h4 className="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-accent-600 transition-colors line-clamp-2">
                         {sermon.title}
                       </h4>
-                      
+
                       <p className="text-slate-500 text-base leading-relaxed line-clamp-2 mb-8 flex-grow">
                         {sermon.excerpt}
                       </p>
@@ -172,7 +171,7 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
             ))}
           </Slider>
         </div>
-        
+
         {/* Mobile View All */}
         <div className="mt-8 flex items-center justify-center md:hidden">
           <Link href="/sermons" className="inline-flex items-center justify-center border-2 border-accent-500 text-accent-600 px-8 py-4 text-sm font-bold tracking-[0.2em] uppercase hover:bg-accent-500 hover:text-white transition-all duration-300">
