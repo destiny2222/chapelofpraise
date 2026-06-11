@@ -72,22 +72,19 @@ export default function Navbar() {
           </Link> */}
           <Link href="/lsm" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             LSM  
-          </Link>
+          </Link> 
           <div className="relative group">
             <button className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors">
               Live Stream
               <Plus className="h-3.5 w-3.5 opacity-70" />
             </button>
             <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 rounded-md bg-brand-900 border border-white/10 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <Link href="/live/youtube" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
-                YouTube
+              <Link href="/live" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
+                Live
               </Link>
-              <Link href="/live/facebook" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
-                Facebook
-              </Link>
-              <Link href="/live/zoom" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
-                Zoom
-              </Link>
+              <Link href="/messages" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
+                Messages
+              </Link> 
             </div>
           </div>
           <Link href="/contact" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 py-2 transition-colors">

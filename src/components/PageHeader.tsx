@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { FadeIn } from './ui/fade-in';
+import React from 'react';
 
 interface BreadcrumbItem {
   label: string;
@@ -10,12 +11,16 @@ interface BreadcrumbItem {
 
 interface PageHeaderProps {
   title: string;
+  subtitle?: React.ReactNode;
+  overline?: string;
   breadcrumbs: BreadcrumbItem[];
   backgroundImage?: string;
 }
 
 export default function PageHeader({ 
   title, 
+  subtitle,
+  overline,
   breadcrumbs, 
   backgroundImage = "https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&q=80&w=2000" 
 }: PageHeaderProps) {
@@ -36,9 +41,20 @@ export default function PageHeader({
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <FadeIn>
+          {overline && (
+            <p className="text-accent-500 text-xs font-bold tracking-[0.25em] uppercase mb-4">
+              {overline}
+            </p>
+          )}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 font-serif">
             {title}
           </h1>
+          
+          {subtitle && (
+            <div className="text-white/90 text-lg sm:text-xl font-light leading-relaxed mb-8 max-w-3xl mx-auto">
+              {subtitle}
+            </div>
+          )}
           
           <nav className="flex justify-center" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 md:space-x-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl">
