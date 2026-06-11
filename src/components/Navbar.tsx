@@ -52,7 +52,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <div className="flex lg:hidden flex-1 justify-end items-center gap-2 sm:gap-4">
-          <Link href="/donate" className="flex items-center scale-90 origin-right">
+          <Link href="/give" className="flex items-center scale-90 origin-right">
             <GlowButton>GIVE</GlowButton>
           </Link>
           <button
@@ -75,7 +75,7 @@ export default function Navbar() {
             About Us 
           </Link>
           <Link href="/phase" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
-            Phase 3
+            Phase III
           </Link>
           <Link href="/services" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Services 
@@ -182,7 +182,7 @@ export default function Navbar() {
               Ministries 
             </Link>
             <Link href="/phase" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
-              Phase 3
+              Phase III
             </Link>
             <Link href="/lsm" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               LSM

@@ -47,7 +47,7 @@ export default async function PhasePage() {
 
     const carouselImages = renderings?.map(r => ({
         src: r.image,
-        alt: "Phase 3 Rendering"
+        alt: "Phase III Rendering"
     })) || [];
 
     return (

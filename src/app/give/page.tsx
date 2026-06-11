@@ -2,6 +2,8 @@ import { FadeIn } from "../../components/ui/fade-in";
 import PageHeader from "../../components/PageHeader";
 import { Smartphone, Mail, Laptop, HeartHandshake } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import ShareButton from "../../components/ShareButton";
 
 export default function Give() {
 
@@ -111,6 +113,47 @@ export default function Give() {
                     <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Account Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">0987654321</dd></div>
                     <div className="flex justify-between"><dt className="text-slate-500">Routing Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">098765432</dd></div>
                       </dl>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Phase III Fundraising Campaign */}
+            <FadeIn delay={0.3} className="lg:col-span-2 mt-8 lg:mt-0">
+              <div className="bg-white rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 overflow-hidden flex flex-col md:flex-row group">
+                <div className="w-full md:w-2/5 relative min-h-[300px] sm:min-h-[400px]">
+                  <Image 
+                    src="/give.jpeg" 
+                    alt="Building Expansion Phase III" 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 to-transparent md:bg-none" />
+                </div>
+                <div className="p-8 sm:p-12 md:w-3/5 flex flex-col justify-center bg-brand-900 relative overflow-hidden">
+                  {/* Decorative background */}
+                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#D4AF37] via-transparent to-transparent"></div>
+                  
+                  <div className="relative z-10">
+                    <span className="text-[#D4AF37] font-bold tracking-widest text-sm uppercase mb-3 block">Special Campaign</span>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-4">Building Expansion Phase III</h3>
+                    <p className="text-slate-300 mb-8 text-lg font-light leading-relaxed">
+                      Partner with us to build our new sanctuary. Your financial support will help us expand our facility to serve our growing congregation and community. <strong>Please send this to friends!</strong>
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 items-center">
+                      <a 
+                        href="https://www.zeffy.com/en-US/donation-form/building-expansion-phase-iii" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto inline-flex justify-center bg-[#D4AF37] text-white font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-[#B8962E] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all duration-300 items-center gap-2"
+                      >
+                        Donate to Phase III
+                      </a>
+                      <ShareButton 
+                        title="Building Expansion Phase III"
+                        url="https://www.zeffy.com/en-US/donation-form/building-expansion-phase-iii"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
