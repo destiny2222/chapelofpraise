@@ -5,11 +5,13 @@ import { useFormStatus } from "react-dom";
 type SubmitButtonProps = {
   defaultText?: string;
   loadingText?: string;
+  className?: string;
 };
 
 export default function SubmitButton({
   defaultText = "Submit",
   loadingText = "Saving...",
+  className = "",
 }: SubmitButtonProps) {
   const { pending } = useFormStatus();
 
@@ -17,7 +19,7 @@ export default function SubmitButton({
     <button
       disabled={pending}
       type="submit"
-      className="bg-brand-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+      className={`bg-brand-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-800 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${className}`}
     >
       {pending && (
         <svg

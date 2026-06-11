@@ -22,6 +22,31 @@ export async function addGraduation(formData: FormData) {
   return { success: true }
 }
 
+export async function editGraduation(formData: FormData) {
+  const supabase = await createClient()
+  const id = formData.get('id')
+
+  const imageFile = formData.get('image') as File
+  let imageUrl = undefined
+
+  if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
+    imageUrl = await uploadToCloudinary(imageFile)
+  }
+
+  if (!imageUrl) {
+    return { error: 'You must select a new image to edit it.' }
+  }
+
+  const { error } = await supabase.from('lsm_graduations').update({
+    image: imageUrl
+  }).eq('id', id)
+
+  if (error) return { error: error.message }
+  revalidatePath('/admin/lsm')
+  revalidatePath('/lsm')
+  return { success: true }
+}
+
 export async function deleteGraduation(formData: FormData) {
   const supabase = await createClient()
   const id = formData.get('id')

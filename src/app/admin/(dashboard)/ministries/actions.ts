@@ -24,6 +24,35 @@ export async function addMinistry(formData: FormData) {
   return { success: true }
 }
 
+export async function editMinistry(formData: FormData) {
+  const supabase = await createClient()
+  const id = formData.get('id')
+
+  const imageFile = formData.get('image') as File
+  let imageUrl = undefined
+
+  if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
+    imageUrl = await uploadToCloudinary(imageFile)
+  }
+
+  const updateData: any = {
+    name: formData.get('name'),
+    meeting_time: formData.get('meeting_time'),
+    description: formData.get('description'),
+  }
+
+  if (imageUrl) {
+    updateData.image = imageUrl
+  }
+
+  const { error } = await supabase.from('ministries').update(updateData).eq('id', id)
+
+  if (error) return { error: error.message }
+  revalidatePath('/admin/ministries')
+  revalidatePath('/ministries')
+  return { success: true }
+}
+
 export async function deleteMinistry(formData: FormData) {
   const supabase = await createClient()
   const id = formData.get('id')

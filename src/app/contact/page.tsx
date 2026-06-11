@@ -2,6 +2,7 @@ import { FadeIn } from "../../components/ui/fade-in";
 import PageHeader from "../../components/PageHeader";
 import { MapPin, Headphones, Mail, Clock } from "lucide-react";
 import Image from "next/image";
+import ContactForm from "../../components/ContactForm";
 
 export default function Contact() {
   return (
@@ -99,47 +100,7 @@ export default function Contact() {
           <div className="flex-1 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-brand-900 mb-8">Send Us a Message</h2>
-              <form className="space-y-5">
-                <div>
-                  <input 
-                    type="text" 
-                    placeholder="Name" 
-                    required 
-                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="email" 
-                    placeholder="Email" 
-                    required 
-                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="tel" 
-                    placeholder="Phone" 
-                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400  transition-all bg-transparent outline-none shadow-sm"
-                  />
-                </div>
-                <div>
-                  <textarea 
-                    placeholder="Your message" 
-                    rows={6} 
-                    required 
-                    className="w-full rounded-md border border-slate-200 px-5 py-4 text-slate-900 placeholder:text-slate-400 transition-all bg-transparent outline-none resize-none shadow-sm"
-                  />
-                </div>
-                <div className="pt-2">
-                  <button 
-                    type="submit" 
-                    className="bg-[#D4AF37] hover:bg-[#B8962E] text-white font-bold tracking-wider px-10 py-4 rounded transition-colors shadow-md hover:shadow-lg"
-                  >
-                    Send Now
-                  </button>
-                </div>
-              </form>
+              <ContactForm />
             </FadeIn>
           </div>
 

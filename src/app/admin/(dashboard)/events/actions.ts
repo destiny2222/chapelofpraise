@@ -14,9 +14,28 @@ export async function addEvent(formData: FormData) {
     description: formData.get('description'),
   })
 
-  if (error) throw new Error(error.message)
+  if (error) return { error: error.message }
   revalidatePath('/admin/events')
   revalidatePath('/')
+  return { success: true }
+}
+
+export async function editEvent(formData: FormData) {
+  const supabase = await createClient()
+  const id = formData.get('id')
+
+  const { error } = await supabase.from('events').update({
+    title: formData.get('title'),
+    date: formData.get('date'),
+    time: formData.get('time'),
+    location: formData.get('location'),
+    description: formData.get('description'),
+  }).eq('id', id)
+
+  if (error) return { error: error.message }
+  revalidatePath('/admin/events')
+  revalidatePath('/')
+  return { success: true }
 }
 
 export async function deleteEvent(formData: FormData) {

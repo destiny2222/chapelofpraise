@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, MapPin, Mail, Globe, Search, Plus, ArrowRight } from 'lucide-react';
+import { Menu, X, Plus, ArrowDown } from 'lucide-react';
 import { GlowButton } from './ui/shiny-button-1';
 import { useState, useEffect } from 'react';
 
@@ -9,21 +9,27 @@ import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLiveStreamOpen, setIsLiveStreamOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-
-  if (pathname.startsWith('/admin')) {
-    return null;
-  }
+  const isAdminRoute = pathname.startsWith('/admin');
 
   // Add scroll listener to make navbar solid when scrolled down
   useEffect(() => {
+    if (isAdminRoute) {
+      return;
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isAdminRoute]);
+
+  if (isAdminRoute) {
+    return null;
+  }
 
   return (
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-brand-900/95 backdrop-blur-md shadow-lg border-b border-white/10' : 'bg-transparent'}`}>
@@ -68,6 +74,9 @@ export default function Navbar() {
           <Link href="/about" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             About Us 
           </Link>
+          <Link href="/phase" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
+            Phase 3
+          </Link>
           <Link href="/services" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             Services 
           </Link> 
@@ -78,11 +87,15 @@ export default function Navbar() {
             LSM  
           </Link> 
           <div className="relative group">
-            <button className="flex items-center gap-1 text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors">
+            <button
+              type="button"
+              className="flex items-center gap-1 rounded-sm text-sm font-bold uppercase tracking-wider text-white transition-colors hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500"
+              aria-haspopup="true"
+            >
               Live Stream
               <Plus className="h-3.5 w-3.5 opacity-70" />
             </button>
-            <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 rounded-md bg-brand-900 border border-white/10 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div className="invisible absolute left-1/2 z-50 mt-2 w-48 -translate-x-1/2 rounded-md border border-white/10 bg-brand-900 py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               <Link href="https://vimeo.com/chapelofpraise" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
                 Live
               </Link>
@@ -175,6 +188,43 @@ export default function Navbar() {
               Contact 
             </Link>
             {/* live stream dropdown */}
+            <div className="flex w-full max-w-xs flex-col items-center">
+              <button
+                type="button"
+                onClick={() => setIsLiveStreamOpen((isOpen) => !isOpen)}
+                className="animate-menu-item flex items-center gap-3 text-2xl font-bold tracking-wide text-white transition-colors duration-300 hover:text-accent-500 sm:text-3xl"
+                aria-expanded={isLiveStreamOpen}
+                aria-controls="mobile-live-stream-menu"
+              >
+                Live Stream
+                <ArrowDown
+                 className={`h-5 w-5 transition-transform duration-300 ${isLiveStreamOpen ? 'rotate-45 text-accent-500' : ''}`} />
+              </button>
+
+              <div
+                id="mobile-live-stream-menu"
+                className={`grid w-full transition-all duration-300 ${isLiveStreamOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+              >
+                <div className="overflow-hidden">
+                  <div className="mt-4 flex flex-col overflow-hidden rounded-lg border">
+                    <Link
+                      href="https://vimeo.com/chapelofpraise"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="px-5 py-3 text-center text-base font-semibold uppercase tracking-wider text-white/85 transition-colors  hover:text-accent-500"
+                    >
+                      Live
+                    </Link>
+                    <Link
+                      href="/messages"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="  px-5 py-3 text-center text-base font-semibold uppercase tracking-wider text-white/85 transition-colors hover:text-accent-500"
+                    >
+                      Messages
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             <Link href="/give" onClick={() => setIsMobileMenuOpen(false)} className="mt-6 animate-menu-item" style={{ animationDelay: '750ms' }}>
               <GlowButton>Give</GlowButton>

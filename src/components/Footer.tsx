@@ -55,10 +55,11 @@ export default function Footer() {
             <ul role="list" className="space-y-3">
               {[
                 { name: 'About Us', href: '/about' },
-                { name: 'Support And FAQ\'s', href: '/support' },
-                { name: 'Payments', href: '/payments' },
-                { name: 'Donations Terms', href: '/terms' },
-                { name: 'Volunteer', href: '/volunteer' },
+                { name: 'Phase 3', href: '/phase' },
+                { name: 'Services', href: '/services' },
+                { name: 'Ministries', href: '/ministries' },
+                { name: 'LSM', href: '/lsm' },
+                { name: 'Contact Us', href: '/contact' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="group flex items-center text-sm text-slate-400 hover:text-accent-500 transition-colors">
@@ -84,16 +85,21 @@ export default function Footer() {
                   South Holland, IL 60473
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent-500 flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-sm text-slate-400 hover:text-accent-500 transition-colors">
-                  (123) 456-7890
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="tel:708-201-1192" className="text-sm text-slate-400 hover:text-accent-500 transition-colors">
+                    708-201-1192
+                  </a>
+                  <a href="tel:708-201-1193" className="text-sm text-slate-400 hover:text-accent-500 transition-colors">
+                    708-201-1193
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent-500 flex-shrink-0" />
-                <a href="mailto:info@chapelofpraise.church" className="text-sm text-slate-400 hover:text-accent-500 transition-colors">
-                  info@chapelofpraise.church
+                <a href="mailto:checchapelofpraise@gmail.com" className="text-sm text-slate-400 hover:text-accent-500 transition-colors">
+                  checchapelofpraise@gmail.com
                 </a>
               </li>
             </ul>
@@ -106,9 +112,7 @@ export default function Footer() {
           <p className="text-xs leading-5 text-slate-400">
             Copyrights &copy; {new Date().getFullYear()} Chapel of Praise. Designed by <a href="https://dexnovate.com" className='text-accent-500' target="_blank" rel="noopener noreferrer">dexnovate</a> 
           </p>
-          <div className="flex items-center gap-4 text-xs text-slate-400">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <span>/</span>
+          <div className="flex items-center gap-4 text-xs text-slate-400">  
             <Link href="/sermons" className="hover:text-white transition-colors">Sermons</Link>
             <span>/</span>
             <Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link>

@@ -28,6 +28,39 @@ export async function addSermon(formData: FormData) {
   return { success: true }
 }
 
+export async function editSermon(formData: FormData) {
+  const supabase = await createClient()
+  const id = formData.get('id')
+
+  const imageFile = formData.get('image') as File
+  let imageUrl = undefined
+
+  if (imageFile && imageFile.size > 0 && imageFile.name !== 'undefined') {
+    imageUrl = await uploadToCloudinary(imageFile)
+  }
+
+  const updateData: any = {
+    title: formData.get('title'),
+    preacher: formData.get('preacher'),
+    date: formData.get('date'),
+    excerpt: formData.get('excerpt'),
+    video_id: formData.get('video_id') || null,
+    tag: formData.get('tag') || 'Sermon',
+  }
+
+  if (imageUrl) {
+    updateData.image = imageUrl
+  }
+
+  const { error } = await supabase.from('sermons').update(updateData).eq('id', id)
+
+  if (error) return { error: error.message }
+  revalidatePath('/admin/sermons')
+  revalidatePath('/messages')
+  revalidatePath('/')
+  return { success: true }
+}
+
 export async function deleteSermon(formData: FormData) {
   const supabase = await createClient()
   const id = formData.get('id')

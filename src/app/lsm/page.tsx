@@ -4,6 +4,7 @@ import PageHeader from "../../components/PageHeader";
 import { Target, Eye, BookOpen, Handshake, GraduationCap, ShieldCheck, Calendar, Clock, Award, ChevronDown } from "lucide-react";
 import GraduationCarousel from "../../components/GraduationCarousel";
 import { supabase } from "../../lib/supabase";
+import LsmRegistrationForm from "../../components/LsmRegistrationForm";
 
 export const dynamic = 'force-dynamic';
 
@@ -38,7 +39,7 @@ export default async function LSM() {
             <FadeIn className="h-full">
               <div className="relative h-full min-h-[400px] w-full rounded-[2rem] overflow-hidden shadow-xl border border-slate-100">
                 <Image 
-                  src="/lsm.jpg" 
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=800" 
                   alt="Lighthouse School of Ministry"
                   fill
                   className="object-cover"
@@ -92,7 +93,7 @@ export default async function LSM() {
               </div>
               <div className="relative md:w-[45%] min-h-[300px] md:min-h-full bg-slate-100">
                 <Image 
-                  src="/lsm.jpg" 
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=800" 
                   alt="Mission in action"
                   fill
                   className="object-cover"
@@ -114,7 +115,7 @@ export default async function LSM() {
               </div>
               <div className="relative md:w-[45%] min-h-[300px] md:min-h-full bg-slate-100">
                 <Image 
-                  src="/hero-bg.jpg" 
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=800" 
                   alt="Vision of the future"
                   fill
                   className="object-cover"
@@ -127,11 +128,11 @@ export default async function LSM() {
       </section>
 
       {/* Ministry Objectives Section */}
-      <section className="bg-white py-24 px-6 lg:px-8">
+      <section className="bg-slate-50 py-24 px-6 lg:px-8 overflow-hidden">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-16">
             <FadeIn>
-              <p className="text-accent-500 text-xs font-bold tracking-[0.25em] uppercase mb-4">
+              <p className="text-accent-600 text-xs font-bold tracking-[0.25em] uppercase mb-4">
                 What You'll Gain
               </p>
               <h2 className="font-serif text-4xl sm:text-5xl font-bold text-brand-900">
@@ -144,53 +145,69 @@ export default async function LSM() {
             
             {/* Objective 1 */}
             <FadeIn delay={0.1} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-8 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <BookOpen className="w-8 h-8" />
+              <div className="group relative rounded-[2rem] p-8 h-full bg-brand-900 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-brand-900/20 transition-all duration-500 hover:-translate-y-2 border border-brand-800 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent-500/10 to-transparent rounded-bl-[100px] transition-transform duration-700 group-hover:scale-150" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm transition-all duration-500 group-hover:bg-accent-500 group-hover:border-accent-400 group-hover:-translate-y-1 shadow-lg">
+                    <BookOpen className="w-7 h-7 text-accent-400 group-hover:text-brand-900 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-4 group-hover:text-accent-400 transition-colors duration-300">Biblical Literacy</h3>
+                  <p className="text-slate-400 font-light leading-relaxed flex-grow">
+                    Become biblically articulate and able to read, understand, and interpret biblical text correctly.
+                  </p>
                 </div>
-                <h3 className="font-bold text-brand-900 text-xl mb-4">Biblical Literacy</h3>
-                <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Become biblically articulate and able to read, understand, and interpret biblical text correctly.
-                </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent-400 to-accent-600 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100 origin-left" />
               </div>
             </FadeIn>
 
             {/* Objective 2 */}
             <FadeIn delay={0.2} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-8 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <Handshake className="w-8 h-8" />
+              <div className="group relative rounded-[2rem] p-8 h-full bg-brand-900 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-brand-900/20 transition-all duration-500 hover:-translate-y-2 border border-brand-800 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent-500/10 to-transparent rounded-bl-[100px] transition-transform duration-700 group-hover:scale-150" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm transition-all duration-500 group-hover:bg-accent-500 group-hover:border-accent-400 group-hover:-translate-y-1 shadow-lg">
+                    <Handshake className="w-7 h-7 text-accent-400 group-hover:text-brand-900 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-4 group-hover:text-accent-400 transition-colors duration-300">Practical Ministry</h3>
+                  <p className="text-slate-400 font-light leading-relaxed flex-grow">
+                    Translate classroom lectures to practical, effective ministry in the local church.
+                  </p>
                 </div>
-                <h3 className="font-bold text-brand-900 text-xl mb-4">Practical Ministry</h3>
-                <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Translate classroom lectures to practical, effective ministry in the local church.
-                </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent-400 to-accent-600 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100 origin-left" />
               </div>
             </FadeIn>
 
             {/* Objective 3 */}
             <FadeIn delay={0.3} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-8 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <GraduationCap className="w-8 h-8" />
+              <div className="group relative rounded-[2rem] p-8 h-full bg-brand-900 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-brand-900/20 transition-all duration-500 hover:-translate-y-2 border border-brand-800 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent-500/10 to-transparent rounded-bl-[100px] transition-transform duration-700 group-hover:scale-150" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm transition-all duration-500 group-hover:bg-accent-500 group-hover:border-accent-400 group-hover:-translate-y-1 shadow-lg">
+                    <GraduationCap className="w-7 h-7 text-accent-400 group-hover:text-brand-900 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-4 group-hover:text-accent-400 transition-colors duration-300">Doctrinal Knowledge</h3>
+                  <p className="text-slate-400 font-light leading-relaxed flex-grow">
+                    Understand Bible doctrines and their theological impact in a ministry context.
+                  </p>
                 </div>
-                <h3 className="font-bold text-brand-900 text-xl mb-4">Doctrinal Knowledge</h3>
-                <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Understand Bible doctrines and their theological impact in a ministry context.
-                </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent-400 to-accent-600 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100 origin-left" />
               </div>
             </FadeIn>
 
             {/* Objective 4 */}
             <FadeIn delay={0.4} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-8 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <ShieldCheck className="w-8 h-8" />
+              <div className="group relative rounded-[2rem] p-8 h-full bg-brand-900 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-brand-900/20 transition-all duration-500 hover:-translate-y-2 border border-brand-800 flex flex-col">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-accent-500/10 to-transparent rounded-bl-[100px] transition-transform duration-700 group-hover:scale-150" />
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 backdrop-blur-sm transition-all duration-500 group-hover:bg-accent-500 group-hover:border-accent-400 group-hover:-translate-y-1 shadow-lg">
+                    <ShieldCheck className="w-7 h-7 text-accent-400 group-hover:text-brand-900 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-4 group-hover:text-accent-400 transition-colors duration-300">Servant Leadership</h3>
+                  <p className="text-slate-400 font-light leading-relaxed flex-grow">
+                    Develop appreciation for and support of the leadership in your local church.
+                  </p>
                 </div>
-                <h3 className="font-bold text-brand-900 text-xl mb-4">Servant Leadership</h3>
-                <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Develop appreciation for and support of the leadership in your local church.
-                </p>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-accent-400 to-accent-600 opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-x-0 group-hover:scale-x-100 origin-left" />
               </div>
             </FadeIn>
 
@@ -260,11 +277,15 @@ export default async function LSM() {
       </section>
 
       {/* Program Details */}
-      <section className="bg-white py-24 px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center mb-16">
+      <section className="bg-slate-50/50 py-24 px-6 lg:px-8 overflow-hidden">
+        <div className="mx-auto max-w-7xl relative">
+          
+          {/* Decorative background blur */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent-100/50 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+          <div className="text-center mb-16 relative z-10">
             <FadeIn>
-              <p className="text-accent-500 text-xs font-bold tracking-[0.25em] uppercase mb-4">
+              <p className="text-accent-600 text-xs font-bold tracking-[0.25em] uppercase mb-4">
                 Program Details
               </p>
               <h2 className="font-serif text-4xl sm:text-5xl font-bold text-brand-900">
@@ -273,40 +294,61 @@ export default async function LSM() {
             </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            {/* Detail 1 */}
             <FadeIn delay={0.1} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-10 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <Calendar className="w-8 h-8" />
+              <div className="group relative bg-white rounded-[2.5rem] p-10 h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-accent-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden">
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-accent-100/80 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute -bottom-8 -right-4 text-[8rem] font-serif font-black text-slate-50 opacity-80 group-hover:text-accent-50 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none">
+                  01
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4">Schedule</h3>
-                <p className="text-slate-600 font-light leading-relaxed">
-                  Yearly program runs <strong className="font-bold text-brand-900">September through May</strong>. Graduation held annually in May.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900 mb-8 border border-brand-100 transition-all duration-500 group-hover:bg-brand-900 group-hover:text-accent-400 group-hover:rotate-6 group-hover:scale-110 shadow-sm">
+                    <Calendar className="w-8 h-8 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">Schedule</h3>
+                  <p className="text-slate-600 font-light leading-relaxed">
+                    Yearly program runs <strong className="font-bold text-brand-900">September through May</strong>. Graduation held annually in May.
+                  </p>
+                </div>
               </div>
             </FadeIn>
             
+            {/* Detail 2 */}
             <FadeIn delay={0.2} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-10 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <Clock className="w-8 h-8" />
+              <div className="group relative bg-white rounded-[2.5rem] p-10 h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-accent-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden">
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-accent-100/80 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute -bottom-8 -right-4 text-[8rem] font-serif font-black text-slate-50 opacity-80 group-hover:text-accent-50 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none">
+                  02
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4">Duration</h3>
-                <p className="text-slate-600 font-light leading-relaxed">
-                  <strong className="font-bold text-brand-900">30 hours</strong> of academic study completed over <strong className="font-bold text-brand-900">2 calendar years</strong>.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900 mb-8 border border-brand-100 transition-all duration-500 group-hover:bg-brand-900 group-hover:text-accent-400 group-hover:rotate-6 group-hover:scale-110 shadow-sm">
+                    <Clock className="w-8 h-8 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">Duration</h3>
+                  <p className="text-slate-600 font-light leading-relaxed">
+                    <strong className="font-bold text-brand-900">30 hours</strong> of academic study completed over <strong className="font-bold text-brand-900">2 calendar years</strong>.
+                  </p>
+                </div>
               </div>
             </FadeIn>
 
+            {/* Detail 3 */}
             <FadeIn delay={0.3} className="h-full">
-              <div className="bg-[#FAF9F6] rounded-[2rem] p-10 text-center h-full border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-accent-500 mx-auto mb-6 shadow-sm">
-                  <Award className="w-8 h-8" />
+              <div className="group relative bg-white rounded-[2.5rem] p-10 h-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 hover:border-accent-200 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] overflow-hidden">
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-accent-100/80 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                <div className="absolute -bottom-8 -right-4 text-[8rem] font-serif font-black text-slate-50 opacity-80 group-hover:text-accent-50 group-hover:-translate-x-4 transition-all duration-700 pointer-events-none">
+                  03
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4">Degree</h3>
-                <p className="text-slate-600 font-light leading-relaxed">
-                  Upon successful completion, graduates receive an <strong className="font-bold text-brand-900">Associate Degree in Ministry</strong>.
-                </p>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-900 mb-8 border border-brand-100 transition-all duration-500 group-hover:bg-brand-900 group-hover:text-accent-400 group-hover:rotate-6 group-hover:scale-110 shadow-sm">
+                    <Award className="w-8 h-8 transition-colors duration-500" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-brand-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">Degree</h3>
+                  <p className="text-slate-600 font-light leading-relaxed">
+                    Upon successful completion, graduates receive an <strong className="font-bold text-brand-900">Associate Degree in Ministry</strong>.
+                  </p>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -389,42 +431,7 @@ export default async function LSM() {
             <div className="bg-[#FAF9F6] rounded-[2rem] p-8 sm:p-12 border border-slate-100 shadow-sm">
               <p className="text-sm text-slate-500 mb-8 font-light">Fields marked with an <span className="text-red-500">*</span> are required</p>
               
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-brand-900">First Name <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-brand-900">Last Name <span className="text-red-500">*</span></label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white" />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-brand-900">Email <span className="text-red-500">*</span></label>
-                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white" />
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-brand-900">Phone Number <span className="text-red-500">*</span></label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-brand-900">Prayer Request Title</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white" />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-brand-900">Prayer Request</label>
-                  <textarea rows={6} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white resize-none"></textarea>
-                </div>
-
-                <button type="button" className="bg-[#D4AF37] text-white font-bold tracking-wider px-8 py-3 rounded hover:bg-[#B8962E] transition-colors mt-4">
-                  Submit
-                </button>
-              </form>
+              <LsmRegistrationForm />
             </div>
           </FadeIn>
         </div>
