@@ -59,14 +59,14 @@ export default function About() {
           </FadeIn>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1  md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
 
             {/* Senior Pastor */}
             <FadeIn delay={0.1}>
               <div className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100">
                 <div className="relative aspect-[4/5] bg-slate-50 overflow-hidden">
                   <Image
-                    src="/DADDY-1.png"
+                    src="/pastors.jpeg"
                     alt="Pastor Adegboyega Talabi"
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -76,17 +76,17 @@ export default function About() {
                 <div className="p-8">
                   <div className="w-10 h-0.5 bg-accent-500 mb-4" />
                   <h2 className="font-serif text-2xl md:text-3xl font-bold text-brand-900 mb-2">
-                    Pastor Adegboyega Talabi
+                    Senior Pastor Adegboyega & Prophetess (Co-Pastor) Mabel Talabi
                   </h2>
-                  <p className="text-accent-500 font-bold tracking-widest uppercase text-xs">
+                  {/* <p className="text-accent-500 font-bold tracking-widest uppercase text-xs">
                     Senior Pastor
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </FadeIn>
 
             {/* Co-Pastor */}
-            <FadeIn delay={0.3} className="md:mt-16">
+            {/* <FadeIn delay={0.3} className="md:mt-16">
               <div className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100">
                 <div className="relative aspect-[4/5] bg-slate-50 overflow-hidden">
                   <Image
@@ -107,7 +107,7 @@ export default function About() {
                   </p>
                 </div>
               </div>
-            </FadeIn>
+            </FadeIn> */}
 
           </div>
         </div>
