@@ -96,7 +96,7 @@ export default function Navbar() {
               <Plus className="h-3.5 w-3.5 opacity-70" />
             </button>
             <div className="invisible absolute left-1/2 z-50 mt-2 w-48 -translate-x-1/2 rounded-md border border-white/10 bg-brand-900 py-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <Link href="https://vimeo.com/chapelofpraise" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
+              <Link href="/live" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
                 Live
               </Link>
               <Link href="/messages" className="block px-4 py-2 text-sm text-white/90 hover:bg-brand-800 hover:text-accent-500">
@@ -211,7 +211,7 @@ export default function Navbar() {
                 <div className="overflow-hidden">
                   <div className="mt-4 flex flex-col overflow-hidden rounded-lg border">
                     <Link
-                      href="https://vimeo.com/chapelofpraise"
+                      href="/live"
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="px-5 py-3 text-center text-base font-semibold uppercase tracking-wider text-white/85 transition-colors  hover:text-accent-500"
                     >
