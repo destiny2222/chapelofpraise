@@ -4,7 +4,7 @@ export const metadata = {
   title: "Live Stream | Chapel of Praise",
   description: "Watch our live services and events online.",
 };
-
+// Powfolio
 export default function LiveStreamPage() {
   return (
     <div className="bg-white">
