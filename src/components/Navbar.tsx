@@ -42,10 +42,10 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Chapel of Praise Logo"
-              width={200}
-              height={60}
+              width={100}
+              height={150}
               priority
-              className="h-10 w-auto " 
+              className="h-24 w-auto " 
             />
           </Link>
         </div>
@@ -71,6 +71,9 @@ export default function Navbar() {
 
         {/* Desktop menu */}
         <div className="hidden lg:flex gap-x-8 items-center">
+          <Link href="/" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
+            Home 
+          </Link>
           <Link href="/about" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-500 rounded-sm transition-colors flex items-center gap-1">
             About Us 
           </Link>

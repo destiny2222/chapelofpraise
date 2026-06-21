@@ -22,12 +22,12 @@ export default async function SermonsAdmin({ searchParams }: PageProps) {
     <div className="space-y-6">
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent-700">Admin Folder</p>
-        <h1 className="mt-2 font-serif text-3xl font-bold text-brand-900 sm:text-4xl">Manage Sermons & Messages</h1>
+        <h1 className="mt-2 font-serif text-3xl font-bold text-brand-900 sm:text-4xl">Manage Messages</h1>
       </div>
 
       {/* Add Form */}
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-6">
-        <h2 className="text-xl font-bold text-brand-900 mb-4">{editItem ? 'Edit Sermon' : 'Add New Sermon'}</h2>
+        <h2 className="text-xl font-bold text-brand-900 mb-4">{editItem ? 'Edit Message' : 'Add New Message'}</h2>
         <AdminForm key={editItem?.id || 'new'} action={editItem ? editSermon : addSermon} className="grid grid-cols-1 md:grid-cols-2 gap-4" successMessage={editItem ? "Sermon successfully updated!" : "Sermon successfully created!"}>
           {editItem && <input type="hidden" name="id" value={editItem.id} />}
           <div>
@@ -39,8 +39,8 @@ export default async function SermonsAdmin({ searchParams }: PageProps) {
             <input required type="text" name="preacher" defaultValue={editItem?.preacher} className="w-full px-3 py-2 border rounded-lg" placeholder="Pastor Ade Talabi" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Date (ISO Format)</label>
-            <input required type="text" name="date" defaultValue={editItem?.date} className="w-full px-3 py-2 border rounded-lg" placeholder="2026-06-07T10:00:00Z" />
+            <label className="block text-sm font-medium text-slate-700 mb-1">Date</label>
+            <input required type="date" name="date" defaultValue={editItem?.date} className="w-full px-3 py-2 border rounded-lg" placeholder="2026-06-07T10:00:00Z" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">YouTube Video ID (Optional)</label>
@@ -57,7 +57,7 @@ export default async function SermonsAdmin({ searchParams }: PageProps) {
           </div>
           <div className="md:col-span-2 flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <SubmitButton defaultText={editItem ? "Update Sermon" : "Add Sermon"} loadingText="Saving Sermon..." />
+              <SubmitButton defaultText={editItem ? "Update Message" : "Add Message"} loadingText="Saving Message..." />
               {editItem && (
                 <Link href="/admin/sermons" className="rounded-lg border border-slate-200 px-6 py-2 text-center font-medium text-slate-600 transition-colors hover:bg-slate-50">
                   Cancel
@@ -113,7 +113,7 @@ export default async function SermonsAdmin({ searchParams }: PageProps) {
             ))}
             {(!sermons || sermons.length === 0) && (
               <tr>
-                <td colSpan={4} className="p-8 text-center text-slate-500">No sermons found.</td>
+                <td colSpan={4} className="p-8 text-center text-slate-500">No messages found.</td>
               </tr>
             )}
           </tbody>

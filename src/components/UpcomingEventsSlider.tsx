@@ -12,6 +12,7 @@ interface Event {
   title: string;
   date: string;
   time: string;
+  image: string;
   location: string;
   description: string;
 }
@@ -107,7 +108,7 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
                     {/* Image */}
                     <div className="w-full h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden relative border border-[#F1EFE7]/10">
                       <img
-                        src={images[index % images.length]}
+                        src={event.image} 
                         alt={event.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />

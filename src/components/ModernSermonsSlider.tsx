@@ -16,10 +16,11 @@ interface Sermon {
   excerpt: string;
   image?: string;
   tag?: string;
+  video_id?: string;
 }
 
 export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) {
-  const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef < Slider > (null);
   const [slidesToShow, setSlidesToShow] = useState(3);
 
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                 </h3>
               </div>
               <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-brand-900 mb-4">
-                Catch Up On Recent Sermons
+                Catch Up On Recent Messages
               </h2>
               <p className="text-slate-600 text-lg">
                 Listen to our latest messages and find inspiration for your daily walk of faith.
@@ -118,21 +119,28 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
 
                     {/* Image */}
                     <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-                      <img
-                        src={sermon.image || images[index % images.length]}
-                        alt={sermon.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-brand-900/10 group-hover:bg-brand-900/30 transition-colors duration-500 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-accent-600 shadow-xl scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                          <Play className="w-7 h-7 ml-1" fill="currentColor" />
-                        </div>
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="px-4 py-1.5 bg-white/95 backdrop-blur-md text-xs font-bold text-brand-900 uppercase tracking-widest rounded-full shadow-sm">
-                          {sermon.tag || 'Sermon'}
-                        </span>
-                      </div>
+                      {sermon.video_id ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${sermon.video_id.includes('?') ? sermon.video_id.split('?')[0] : sermon.video_id}?rel=0`}
+                          title={sermon.title}
+                          className="w-full h-full object-cover border-0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <>
+                          <img
+                            src={sermon.image || images[index % images.length]}
+                            alt={sermon.title}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-brand-900/10 group-hover:bg-brand-900/30 transition-colors duration-500 flex items-center justify-center pointer-events-none">
+                            <div className="w-16 h-16 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-accent-600 shadow-xl scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                              <Play className="w-7 h-7 ml-1" fill="currentColor" />
+                            </div>
+                          </div>
+                        </>
+                      )} 
                     </div>
 
                     {/* Content */}
@@ -158,12 +166,12 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                         {sermon.excerpt}
                       </p>
 
-                      <div className="flex items-center text-accent-600 font-bold text-sm tracking-wide uppercase mt-auto">
+                      {/* <div className="flex items-center text-accent-600 font-bold text-sm tracking-wide uppercase mt-auto">
                         Listen Now
                         <div className="ml-3 w-8 h-8 rounded-full bg-accent-50 group-hover:bg-accent-500 flex items-center justify-center transition-colors duration-300">
                           <ArrowRight className="w-4 h-4 text-accent-600 group-hover:text-white transform group-hover:translate-x-0.5 transition-all duration-300" />
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </FadeIn>

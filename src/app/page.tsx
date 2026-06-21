@@ -26,7 +26,7 @@ export default async function Home() {
     <>
       {/* Animated Hero Section */}
       <Hero
-        videoSrc="https://chapelofpraise.church/wp-content/uploads/2019/03/Background.mp4"
+        // videoSrc="https://chapelofpraise.church/wp-content/uploads/2019/03/Background.mp4"
         trustBadge={{
           text: "Experience the presence of God.",
           // text: "CHRIST HEALING EVANGELICAL CHURCH",
@@ -44,7 +44,7 @@ export default async function Home() {
           },
           secondary: {
             text: "Watch Live",
-            href: "/sermons"
+            href: "/live"
           }
         }}
       />
@@ -125,11 +125,9 @@ export default async function Home() {
 
       {/* Our Services Section */}
       <section className="relative py-24 sm:py-32 z-20 overflow-hidden bg-[#FAF9F6]">
-        {/* Background Image */}
-        <img
-          src="/nathan-mullet.jpg"
-          alt="Worship background"
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.15] mix-blend-multiply pointer-events-none"
+        {/* Background Image Parallax */}
+        <div
+          className="absolute inset-0 w-full h-full bg-[url('/nathan-mullet.jpg')] bg-cover bg-center bg-no-repeat bg-fixed opacity-[0.15] mix-blend-multiply pointer-events-none"
         />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
@@ -146,54 +144,19 @@ export default async function Home() {
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-900">
+              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-900 mb-8">
                 Our Services
               </h2>
             </FadeIn>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-
-            {/* Card 1 */}
-            <FadeIn delay={0.2} direction="up" className="h-full">
-              <div className="group bg-white rounded-[2rem] p-10 md:p-14 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-accent-50/50 flex items-center justify-center mb-8 mx-auto group-hover:scale-110 group-hover:bg-accent-50 transition-all duration-500">
-                  <BookOpen className="w-10 h-10 text-accent-500" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-brand-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
-                  Believer's Bible Class
-                </h3>
-                <p className="text-accent-500 font-bold tracking-wide uppercase text-sm mb-6">
-                  Sundays at 10:00 AM
-                </p>
-                <div className="w-12 h-1 bg-brand-100 mx-auto mb-6 rounded-full group-hover:bg-accent-200 transition-colors duration-300"></div>
-                <p className="text-slate-500 leading-relaxed max-w-sm mx-auto text-base">
-                  Deep dive into God's word before the Sunday worship service. All are welcome to join us for study and discussion.
-                </p>
-              </div>
+            <FadeIn delay={0.2}>
+              <Link 
+                href="/services" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-brand-900 hover:bg-brand-800 text-white rounded-full font-bold text-sm transition-colors shadow-lg shadow-brand-900/20"
+              >
+                See All Services
+              </Link>
             </FadeIn>
-
-            {/* Card 2 */}
-            <FadeIn delay={0.3} direction="up" className="h-full">
-              <div className="group bg-white rounded-[2rem] p-10 md:p-14 text-center border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-accent-50/50 flex items-center justify-center mb-8 mx-auto group-hover:scale-110 group-hover:bg-accent-50 transition-all duration-500">
-                  <Church className="w-10 h-10 text-accent-500" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-brand-900 mb-4 group-hover:text-accent-600 transition-colors duration-300">
-                  Sunday Worship Service
-                </h3>
-                <p className="text-accent-500 font-bold tracking-wide uppercase text-sm mb-6">
-                  Sundays at 11:00 AM
-                </p>
-                <div className="w-12 h-1 bg-brand-100 mx-auto mb-6 rounded-full group-hover:bg-accent-200 transition-colors duration-300"></div>
-                <p className="text-slate-500 leading-relaxed max-w-sm mx-auto text-base">
-                  We look forward to meeting you. Join us for worship, fellowship, and the word at 15821 Greenwood Road, South Holland, IL 60473.
-                </p>
-              </div>
-            </FadeIn>
-
-          </div>
+          </div> 
         </div>
       </section>
 

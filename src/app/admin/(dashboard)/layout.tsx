@@ -20,7 +20,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { name: 'Events', href: '/admin/events', icon: Calendar },
-    { name: 'Sermons', href: '/admin/sermons', icon: Video },
+    { name: 'Message', href: '/admin/sermons', icon: Video },
     { name: 'Ministries', href: '/admin/ministries', icon: Users },
     { name: 'LSM Graduations', href: '/admin/lsm', icon: GraduationCap },
     { name: 'Phase Renderings', href: '/admin/phase', icon: Images },

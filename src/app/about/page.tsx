@@ -21,6 +21,7 @@ export default function About() {
                   src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1000" 
                   alt="A diverse and inclusive community"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -69,6 +70,7 @@ export default function About() {
                     src="/pastors.jpeg"
                     alt="Pastor Adegboyega Talabi"
                     fill
+                    sizes="(max-width: 768px) 100vw, 400px"
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     priority
                   />

@@ -15,6 +15,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://localhost:3000'), // Replace with your actual domain in production
   title: "Chapel of Praise | Modern Church",
   description: "Transforming lives through the love of Christ. Join us this Sunday!",
   icons: {
@@ -42,8 +43,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${montserrat.variable} ${playfair.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">
           {children}
