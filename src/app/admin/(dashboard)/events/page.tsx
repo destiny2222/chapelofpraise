@@ -44,7 +44,7 @@ export default async function EventsAdmin({ searchParams }: PageProps) {
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Image</label>
-            <input type="file" name="image" defaultValue={editItem?.image} className="w-full px-3 py-2 border rounded-lg" />
+            <input type="file" accept="image/*" name="image" className="w-full px-3 py-2 border rounded-lg" />
           </div>  
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Location</label>

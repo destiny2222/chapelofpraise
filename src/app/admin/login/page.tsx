@@ -1,10 +1,9 @@
 import { login } from './actions'
 
-export default function LoginPage({
-  searchParams,
-}: {
-  searchParams: { error?: string }
+export default async function LoginPage(props: {
+  searchParams: Promise<{ error?: string }>
 }) {
+  const searchParams = await props.searchParams;
   return (
     <div className="min-h-screen bg-[#FAF9F6] flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
