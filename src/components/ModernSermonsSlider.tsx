@@ -162,9 +162,9 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                         {sermon.title}
                       </h4>
 
-                      <p className="text-slate-500 text-base leading-relaxed line-clamp-2 mb-8 flex-grow">
+                      {/* <p className="text-slate-500 text-base leading-relaxed line-clamp-2 mb-8 flex-grow">
                         {sermon.excerpt}
-                      </p>
+                      </p> */}
 
                       {/* <div className="flex items-center text-accent-600 font-bold text-sm tracking-wide uppercase mt-auto">
                         Listen Now
