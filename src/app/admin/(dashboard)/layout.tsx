@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Calendar, Video, Users, GraduationCap, LayoutDashboard, LogOut, Images } from 'lucide-react'
+import { Calendar, Video, Users, GraduationCap, LayoutDashboard, LogOut, Images, Settings } from 'lucide-react'
 import { createClient } from '../../../lib/supabase/client'
 import { useRouter } from 'next/navigation'
 
@@ -24,6 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'Ministries', href: '/admin/ministries', icon: Users },
     { name: 'LSM Graduations', href: '/admin/lsm', icon: GraduationCap },
     { name: 'Phase Renderings', href: '/admin/phase', icon: Images },
+    { name: 'Settings', href: '/admin/profile', icon: Settings },
   ]
 
   return (
