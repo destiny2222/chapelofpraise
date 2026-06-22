@@ -64,7 +64,7 @@ export default function EventCard({ id, title, date, time, location, description
               rel="noopener noreferrer"
               className="inline-flex justify-center items-center rounded-xl bg-accent-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-accent-700 transition-colors whitespace-nowrap"
             >
-              External Link
+              Registration Link
             </a>
           )}
         </div>
