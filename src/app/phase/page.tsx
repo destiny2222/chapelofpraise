@@ -31,14 +31,13 @@ const features = [
     { icon: Building2, title: "New Sanctuary", desc: "Expanded seating auditorium for our growing congregation" },
     { icon: BookOpen, title: "Children's Classrooms", desc: "Equipped learning spaces for children's ministry growth" },
     { icon: Heart, title: "Accessible Spaces", desc: "Dedicated areas for special needs members of our community" },
-    { icon: Users, title: "Youth Facilities", desc: "Space for our NextGen community to grow and thrive" },
+    { icon: Users, title: "Youth Empowerment and Development", desc: "Space for our NextGen community to grow and thrive" },
 ];
 
 const stats = [
     { value: "30+", label: "Years of Ministry" },
     { value: "$6M", label: "Building Goal" },
-    { value: "3", label: "Phases" },
-    { value: "100s", label: "Lives Impacted" },
+    { value: "3", label: "Phases" }, 
 ];
 
 export default async function PhasePage() {
@@ -62,7 +61,7 @@ export default async function PhasePage() {
             {/* Stats Strip */}
             <section className="bg-brand-900 py-10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center">
                         {stats.map((stat, idx) => (
                             <FadeIn key={idx} delay={idx * 0.1}>
                                 <div>

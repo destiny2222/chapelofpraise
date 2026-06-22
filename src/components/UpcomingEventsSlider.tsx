@@ -104,7 +104,7 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
             {events.map((event, index) => (
               <div key={event.id} className="px-4 outline-none">
                 <FadeIn delay={index * 0.1}>
-                  <div className="group cursor-pointer flex flex-col gap-6">
+                  <Link href={`/events/${event.id}`} className="group cursor-pointer flex flex-col gap-6 block">
                     {/* Image */}
                     <div className="w-full h-64 sm:h-72 lg:h-80 rounded-3xl overflow-hidden relative border border-[#F1EFE7]/10">
                       <img
@@ -119,22 +119,14 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
                     <div className="flex flex-col gap-3">
                       <div className="text-[#F1EFE7]/80 text-xs font-bold tracking-widest uppercase">
                         {event.date
-                          ? new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+                          ? new Date(`${event.date.split('T')[0]}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
                           : 'DATE TBA'}
                       </div>
                       <h3 className="text-2xl font-bold text-[#F1EFE7] leading-tight group-hover:text-accent-400 transition-colors">
                         {event.title}
-                      </h3>
-                      <div className="flex items-center gap-3 mt-2">
-                        <div className="w-8 h-8 rounded-full bg-[#1A1A1A] flex items-center justify-center text-accent-500 font-bold text-xs border border-accent-500/30">
-                          CP
-                        </div>
-                        <span className="text-[#F1EFE7]/70 text-sm font-medium">
-                          chapelofpraise
-                        </span>
-                      </div>
+                      </h3> 
                     </div>
-                  </div>
+                  </Link>
                 </FadeIn>
               </div>
             ))}

@@ -15,12 +15,20 @@ import { supabase } from "../lib/supabase";
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  // Fetch data from Supabase
-  const { data: eventsData } = await supabase.from('events').select('*').order('date', { ascending: true }).limit(6);
-  const { data: sermonsData } = await supabase.from('sermons').select('*').order('date', { ascending: false }).limit(6);
+  let upcomingEvents: any[] = [];
+  let recentSermons: any[] = [];
 
-  const upcomingEvents = eventsData || [];
-  const recentSermons = sermonsData || [];
+  try {
+    const [{ data: eventsData }, { data: sermonsData }] = await Promise.all([
+      supabase.from('events').select('*').order('date', { ascending: true }).limit(6),
+      supabase.from('sermons').select('*').order('date', { ascending: false }).limit(6)
+    ]);
+    
+    upcomingEvents = eventsData || [];
+    recentSermons = sermonsData || [];
+  } catch (error) {
+    // console.error("Failed to fetch data from Supabase:", error);
+  }
 
   return (
     <>

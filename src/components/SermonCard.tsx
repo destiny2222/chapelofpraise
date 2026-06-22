@@ -13,7 +13,7 @@ export default function SermonCard({ id, title, preacher, date, excerpt }: Sermo
     <article className="flex flex-col items-start justify-between bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-x-4 text-xs">
         <time dateTime={date} className="text-slate-500">
-          {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          {new Date(`${date.split('T')[0]}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </time>
         <span className="relative z-10 rounded-full bg-brand-50 px-3 py-1.5 font-medium text-brand-700">
           Sermon

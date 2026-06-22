@@ -86,7 +86,7 @@ export default async function SermonsAdmin({ searchParams }: PageProps) {
               <tr key={sermon.id} className="border-b border-slate-50 hover:bg-slate-50/50">
                 <td className="p-4">
                   <div className="font-medium text-brand-900">{sermon.title}</div>
-                  <div className="text-xs text-slate-400">{new Date(sermon.date).toLocaleDateString()}</div>
+                  <div className="text-xs text-slate-400">{new Date(`${sermon.date.split('T')[0]}T12:00:00`).toLocaleDateString()}</div>
                 </td>
                 <td className="p-4 text-sm text-slate-600">{sermon.preacher}</td>
                 <td className="p-4 text-sm text-slate-600">

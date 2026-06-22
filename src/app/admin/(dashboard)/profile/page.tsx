@@ -12,6 +12,9 @@ export default function ProfilePage() {
   const [emailStatus, setEmailStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
   const [passwordStatus, setPasswordStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
   
+  const [isUpdatingEmail, setIsUpdatingEmail] = useState(false)
+  const [isUpdatingPassword, setIsUpdatingPassword] = useState(false)
+  
   const supabase = createClient()
 
   useEffect(() => {
@@ -28,6 +31,7 @@ export default function ProfilePage() {
   const handleUpdateEmail = async (e: React.FormEvent) => {
     e.preventDefault()
     setEmailStatus(null)
+    setIsUpdatingEmail(true)
     
     try {
       const { error } = await supabase.auth.updateUser({ email: newEmail })
@@ -35,6 +39,8 @@ export default function ProfilePage() {
       setEmailStatus({ type: 'success', message: 'Email update verification sent. Please check your old and new email addresses.' })
     } catch (error: any) {
       setEmailStatus({ type: 'error', message: error.message || 'Failed to update email' })
+    } finally {
+      setIsUpdatingEmail(false)
     }
   }
 
@@ -52,6 +58,7 @@ export default function ProfilePage() {
       return
     }
 
+    setIsUpdatingPassword(true)
     try {
       const { error } = await supabase.auth.updateUser({ password })
       if (error) throw error
@@ -60,6 +67,8 @@ export default function ProfilePage() {
       setConfirmPassword('')
     } catch (error: any) {
       setPasswordStatus({ type: 'error', message: error.message || 'Failed to update password' })
+    } finally {
+      setIsUpdatingPassword(false)
     }
   }
 
@@ -102,9 +111,10 @@ export default function ProfilePage() {
             
             <button
               type="submit"
-              className="w-full rounded-md bg-brand-900 px-4 py-2 font-medium text-white transition-colors hover:bg-brand-800"
+              disabled={isUpdatingEmail}
+              className="w-full rounded-md bg-brand-900 px-4 py-2 font-medium text-white transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Update Email
+              {isUpdatingEmail ? 'Updating...' : 'Update Email'}
             </button>
           </form>
         </div>
@@ -141,9 +151,10 @@ export default function ProfilePage() {
             
             <button
               type="submit"
-              className="w-full rounded-md bg-brand-900 px-4 py-2 font-medium text-white transition-colors hover:bg-brand-800"
+              disabled={isUpdatingPassword}
+              className="w-full rounded-md bg-brand-900 px-4 py-2 font-medium text-white transition-colors hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Update Password
+              {isUpdatingPassword ? 'Updating...' : 'Update Password'}
             </button>
           </form>
         </div>

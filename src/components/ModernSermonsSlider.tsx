@@ -149,7 +149,7 @@ export default function ModernSermonsSlider({ sermons }: { sermons: Sermon[] }) 
                         <div className="flex items-center gap-1.5">
                           <Clock className="w-4 h-4 text-accent-500" />
                           <span className="text-xs sm:text-sm">
-                            {new Date(sermon.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                            {new Date(`${sermon.date.split('T')[0]}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5">

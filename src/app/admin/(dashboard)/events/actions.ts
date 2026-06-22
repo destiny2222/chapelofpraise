@@ -14,6 +14,7 @@ export async function addEvent(formData: FormData) {
     title: formData.get('title'),
     date: formData.get('date'),
     time: formData.get('time'),
+    link: formData.get('link'),
     image: imageUrl || null,
     location: formData.get('location'),
     description: formData.get('description'),
@@ -40,6 +41,7 @@ export async function editEvent(formData: FormData) {
     title: formData.get('title'),
     date: formData.get('date'),
     time: formData.get('time'),
+    link: formData.get('link'),
     location: formData.get('location'),
     description: formData.get('description'),
   }
