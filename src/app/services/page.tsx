@@ -126,16 +126,16 @@ export default function Services() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-6 md:px-12 w-full sm:w-auto flex flex-col sm:flex-row items-center gap-5 sm:gap-12 border border-white/10 overflow-hidden">
                   <div className="text-center shrink-0">
                     <p className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-wider mb-1">Dial-In Number</p>
-                    <p className="text-xl sm:text-3xl font-bold text-white whitespace-nowrap">205-825-9755</p>
+                    <p className="text-xl sm:text-3xl font-bold text-white whitespace-nowrap">518-351-9990</p>
                   </div>
                   <div className="hidden sm:block w-px h-12 bg-white/20 shrink-0"></div>
                   <div className="block sm:hidden w-12 h-px bg-white/20 shrink-0"></div>
                   <div className="text-center w-full sm:w-auto min-w-0">
                     <p className="text-slate-400 text-[10px] sm:text-xs uppercase tracking-wider mb-1">Meeting ID / Pin</p>
                     <p className="text-base sm:text-xl font-bold text-white flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-                      <span className="truncate max-w-full">ChecChapelofPraise</span> 
+                      <span className="truncate max-w-full">chapelofpraise3</span> 
                       <span className="hidden sm:inline text-accent-500">•</span> 
-                      <span>6803</span>
+                      <span>5396</span>
                     </p>
                   </div>
                 </div>

@@ -9,42 +9,7 @@ export default function About() {
         title="About Us" 
         breadcrumbs={[{ label: "About Us", href: "/about" }]} 
       />
-      {/* Intro Split Section */}
-      <section className="bg-white py-24 px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
-            
-            {/* Image Side */}
-            <FadeIn className="h-full">
-              <div className="relative h-full min-h-[400px] w-full rounded-[20px] overflow-hidden shadow-sm">
-                <Image 
-                  src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1000" 
-                  alt="A diverse and inclusive community"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </FadeIn>
 
-            {/* Text Side */}
-            <FadeIn delay={0.2} className="flex flex-col justify-center py-6">
-              <h2 className="font-sans text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-[#1A2A3A] leading-[1] mb-8">
-                A DIVERSE AND  INCLUSIVE COMMUNITY
-              </h2>
-              <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-serif">
-                <p>
-                  Our ministry embraces diversity and is deeply committed to authentic fellowship. We understand each person comes to us with different talents, backgrounds, and identities. And we celebrate that difference because our diversity is our strength.
-                </p>
-                <p>
-                  Community is everything at Chapel of Praise. It's who we are and how things get done. Everyone here is motivated by a deep commitment to making sure each person and family feels welcome and included. When everyone feels like they belong, we are stronger and smarter together. We're a community driven to make the world a better place—starting in our own backyard.
-                </p>
-              </div>
-            </FadeIn>
-
-          </div>
-        </div>
-      </section>
       {/* Leadership Images Section */}
       <section className="py-24 sm:py-32 bg-[#FAF9F6]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -115,6 +80,45 @@ export default function About() {
         </div>
       </section>
 
+
+      {/* Intro Split Section */}
+      <section className="bg-white py-24 px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
+            
+            {/* Image Side */}
+            <FadeIn className="h-full">
+              <div className="relative h-full min-h-[400px] w-full rounded-[20px] overflow-hidden shadow-sm">
+                <Image 
+                  src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1000" 
+                  alt="A diverse and inclusive community"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </FadeIn>
+
+            {/* Text Side */}
+            <FadeIn delay={0.2} className="flex flex-col justify-center py-6">
+              <h2 className="font-sans text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter text-[#1A2A3A] leading-[1] mb-8">
+                A DIVERSE AND  INCLUSIVE COMMUNITY
+              </h2>
+              <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-serif">
+                <p>
+                  Our ministry embraces diversity and is deeply committed to authentic fellowship. We understand each person comes to us with different talents, backgrounds, and identities. And we celebrate that difference because our diversity is our strength.
+                </p>
+                <p>
+                  Community is everything at Chapel of Praise. It's who we are and how things get done. Everyone here is motivated by a deep commitment to making sure each person and family feels welcome and included. When everyone feels like they belong, we are stronger and smarter together. We're a community driven to make the world a better place—starting in our own backyard.
+                </p>
+              </div>
+            </FadeIn>
+
+          </div>
+        </div>
+      </section>
+
+      
       {/* Our Vision Dark Block */}
       <section className="bg-brand-900 py-24 sm:py-32 text-center px-4">
         <FadeIn className="max-w-4xl mx-auto">
