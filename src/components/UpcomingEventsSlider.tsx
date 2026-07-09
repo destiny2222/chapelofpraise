@@ -120,7 +120,7 @@ export default function UpcomingEventsSlider({ events }: { events: Event[] }) {
                       <div className="text-[#F1EFE7]/80 text-xs font-bold tracking-widest uppercase">
                         {event.date
                           ? new Date(`${event.date.split('T')[0]}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-                          : 'DATE TBA'}
+                          : ''}
                       </div>
                       <h3 className="text-2xl font-bold text-[#F1EFE7] leading-tight group-hover:text-accent-400 transition-colors">
                         {event.title}
