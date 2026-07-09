@@ -1,6 +1,6 @@
 import { FadeIn } from "../../components/ui/fade-in";
 import PageHeader from "../../components/PageHeader";
-import { Smartphone, Mail, Laptop, HeartHandshake } from "lucide-react";
+import { Smartphone, Mail, Laptop, HeartHandshake, Home } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ShareButton from "../../components/ShareButton";
@@ -50,13 +50,9 @@ export default function Give() {
                     <Laptop className="w-8 h-8 text-[#D4AF37]" />
                   </div>
                   
-                  <h3 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-4">Give Online</h3>
-                  <p className="text-slate-300 mb-10 text-lg font-light leading-relaxed">
-                    Securely give online using your credit/debit card. You can easily set up a one-time gift or schedule a recurring donation.
-                  </p>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-4">Giving Categories</h3>
                   
-                  <div className="space-y-6 mb-12">
-                    <h4 className="font-bold text-white tracking-wide uppercase text-sm opacity-90">Giving Categories</h4>
+                  <div className="space-y-6 mb-12"> 
                     <ul className="space-y-5">
                         {givingCategories.map(cat => (
                         <li key={cat.name} className="flex gap-x-4 items-start">
@@ -73,46 +69,64 @@ export default function Give() {
                     </ul>
                   </div>
                 </div>
-
-                <div className="relative z-10 mt-auto pt-8">
-                  <button className="w-full bg-[#D4AF37] text-white font-bold uppercase tracking-widest text-sm px-8 py-5 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:bg-[#B8962E] hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all duration-300 flex justify-center items-center gap-2">
-                    Proceed to Secure Gateway
-                  </button>
-                </div>
               </div>
             </FadeIn>
 
             {/* Bank Transfer - Premium Light Card */}
             <FadeIn delay={0.2} className="h-full">
               <div className="bg-white p-8 sm:p-12 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 h-full flex flex-col">
-                <div className="inline-flex items-center justify-center p-3 bg-[#FAF9F6] rounded-2xl mb-8 border border-slate-100">
+                {/* <div className="inline-flex items-center justify-center p-3 bg-[#FAF9F6] rounded-2xl mb-8 border border-slate-100">
                   <HeartHandshake className="w-8 h-8 text-brand-900" />
-                </div>
+                </div> */}
                 
-                <h3 className="text-3xl sm:text-4xl font-bold text-brand-900 font-serif mb-4">Direct Bank Transfer</h3>
-                <p className="text-slate-500 mb-10 text-lg font-light leading-relaxed">
-                  You can transfer directly to our church bank accounts. Please specify your giving category in the transfer description.
+                <h3 className="text-3xl sm:text-4xl font-bold text-brand-900 font-serif mb-4">How To Give</h3>
+                <p className="text-slate-500 mb-10 text-lg font-light leading-relaxed italic">
+                  "Every man shall give as he is able, according the blessing of the Lord your God which he has given you" <span className="font-semibold block mt-2 text-brand-900 not-italic">(Deut. 16:17 NKJV)</span>
                 </p>
 
-                <div className="space-y-6 flex-grow">
-                <div className="bg-[#FAF9F6] p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/30 transition-colors">
-                    <h4 className="font-bold text-brand-900 mb-3 text-lg">Primary Account <span className="text-slate-500 font-normal text-sm ml-1">(Tithe & Offering)</span></h4>
-                    <dl className="space-y-2 text-sm">
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Bank Name:</dt><dd className="font-bold text-brand-900">Grace City Bank</dd></div>
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Account Name:</dt><dd className="font-bold text-brand-900">Chapel of Praise</dd></div>
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Account Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">1234567890</dd></div>
-                    <div className="flex justify-between"><dt className="text-slate-500">Routing Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">098765432</dd></div>
-                      </dl>
+                <div className="space-y-4 flex-grow">
+                  {/* Text to Give */}
+                  <div className="bg-[#FAF9F6] p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/50 hover:shadow-md transition-all duration-300 flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-full bg-brand-900/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-900/10 transition-all duration-300">
+                      <Smartphone className="w-5 h-5 text-brand-900" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#D4AF37] font-bold text-xs sm:text-sm tracking-widest uppercase mb-0.5">Text to Give</h4>
+                      <p className="text-brand-900 font-semibold text-lg sm:text-xl">(833) 916-3073</p>
+                    </div>
                   </div>
 
-                <div className="bg-[#FAF9F6] p-6 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/30 transition-colors">
-                    <h4 className="font-bold text-brand-900 mb-3 text-lg">Projects Account <span className="text-slate-500 font-normal text-sm ml-1">(Building & Missions)</span></h4>
-                    <dl className="space-y-2 text-sm">
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Bank Name:</dt><dd className="font-bold text-brand-900">Grace City Bank</dd></div>
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Account Name:</dt><dd className="font-bold text-brand-900">Chapel of Praise Projects</dd></div>
-                    <div className="flex justify-between border-b border-slate-200/60 pb-2"><dt className="text-slate-500">Account Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">0987654321</dd></div>
-                    <div className="flex justify-between"><dt className="text-slate-500">Routing Number:</dt><dd className="font-mono font-bold text-brand-900 bg-white px-2 py-0.5 rounded border border-slate-100">098765432</dd></div>
-                      </dl>
+                  {/* Zelle */}
+                  <div className="bg-[#FAF9F6] p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/50 hover:shadow-md transition-all duration-300 flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-full bg-brand-900/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-900/10 transition-all duration-300">
+                      <Laptop className="w-5 h-5 text-brand-900" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#D4AF37] font-bold text-xs sm:text-sm tracking-widest uppercase mb-0.5">Zelle to CHEC</h4>
+                      <p className="text-brand-900 font-semibold text-base sm:text-lg">checchurch25@gmail.com</p>
+                    </div>
+                  </div>
+
+                  {/* In Person */}
+                  <div className="bg-[#FAF9F6] p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/50 hover:shadow-md transition-all duration-300 flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-full bg-brand-900/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-900/10 transition-all duration-300">
+                      <HeartHandshake className="w-5 h-5 text-brand-900" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#D4AF37] font-bold text-xs sm:text-sm tracking-widest uppercase mb-0.5">Cash/Check</h4>
+                      <p className="text-brand-900 font-semibold text-base sm:text-lg">Chapel Of Praise Church</p>
+                    </div>
+                  </div>
+
+                  {/* Mail */}
+                  <div className="bg-[#FAF9F6] p-5 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/50 hover:shadow-md transition-all duration-300 flex items-center gap-5 group">
+                    <div className="w-12 h-12 rounded-full bg-brand-900/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-900/10 transition-all duration-300">
+                      <Home className="w-5 h-5 text-brand-900" />
+                    </div>
+                    <div>
+                      <h4 className="text-[#D4AF37] font-bold text-xs sm:text-sm tracking-widest uppercase mb-0.5">Phase III</h4>
+                      <p className="text-brand-900 font-medium text-sm sm:text-base leading-snug"><a href="https://www.zeffy.com/en-US/donation-form/building-expansion-phase-iii" className="text-brand-900 font-semibold">Give to Phase III</a></p>
+                    </div>
                   </div>
                 </div>
               </div>

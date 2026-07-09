@@ -202,7 +202,7 @@ export default async function Home() {
 
             {/* Donate Button */}
             <Link
-              href="/give"
+              href="https://www.zeffy.com/en-US/donation-form/building-expansion-phase-iii"
               className="inline-block border-2 border-accent-500 bg-transparent text-white px-10 py-4 text-sm font-bold tracking-[0.2em] uppercase hover:bg-accent-500 transition-all duration-300"
             >
               Donate Online

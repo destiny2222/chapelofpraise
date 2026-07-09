@@ -10,9 +10,12 @@ export async function addEvent(formData: FormData) {
   const imageFile = formData.get('image') as File | null
   const imageUrl = await uploadToCloudinary(imageFile)
 
+  const dateStr = formData.get('date') as string;
+  if (!dateStr) return { error: "Date is required" };
+
   const { error } = await supabase.from('events').insert({
     title: formData.get('title'),
-    date: formData.get('date'),
+    date: dateStr,
     time: formData.get('time'),
     link: formData.get('link'),
     image: imageUrl || null,
@@ -37,9 +40,12 @@ export async function editEvent(formData: FormData) {
     imageUrl = await uploadToCloudinary(imageFile)
   }
 
+  const dateStr = formData.get('date') as string;
+  if (!dateStr) return { error: "Date is required" };
+
   const updateData: any = {
     title: formData.get('title'),
-    date: formData.get('date'),
+    date: dateStr,
     time: formData.get('time'),
     link: formData.get('link'),
     location: formData.get('location'),

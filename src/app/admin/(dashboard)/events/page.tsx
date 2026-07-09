@@ -35,12 +35,12 @@ export default async function EventsAdmin({ searchParams }: PageProps) {
             <input required type="text" name="title" defaultValue={editItem?.title} className="w-full px-3 py-2 border focus:ring-0 focus:border-accent-500 rounded-lg" placeholder="Sunday Worship Service" />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Date (ISO Format)</label>
-            <input required type="date" name="date" defaultValue={editItem?.date} className="w-full px-3 py-2 border rounded-lg" placeholder="2026-06-14T09:00:00Z" />
+            <label className="block text-sm font-medium text-slate-700 mb-1">Date</label>
+            <input required type="date" name="date" defaultValue={editItem?.date ? editItem.date.split('T')[0] : ''} className="w-full px-3 py-2 border rounded-lg" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Time (Display)</label>
-            <input required type="text" name="time" defaultValue={editItem?.time} className="w-full px-3 py-2 border rounded-lg" placeholder="9:00 AM - 11:30 AM" />
+            <input  type="text" name="time" defaultValue={editItem?.time} className="w-full px-3 py-2 border rounded-lg" placeholder="9:00 AM - 11:30 AM" />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Image</label>
