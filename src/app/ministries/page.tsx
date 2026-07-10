@@ -8,9 +8,10 @@ import { supabase } from "../../lib/supabase";
 export const dynamic = 'force-dynamic';
 
 export default async function Ministries() {
-  const { data: ministriesData } = await supabase.from('ministries').select('*').order('created_at', { ascending: false });
+  const { data: ministriesData } = await supabase.from('ministries').select('*').order('id', { ascending: true });
   const ministries = ministriesData || [];
 
+  
   return (
     <div className="bg-[#FAF9F6] selection:bg-[#C8102E] selection:text-white pb-32">
       <PageHeader 
