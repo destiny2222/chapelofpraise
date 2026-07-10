@@ -115,6 +115,7 @@ export default function Give() {
                     <div>
                       <h4 className="text-[#D4AF37] font-bold text-xs sm:text-sm tracking-widest uppercase mb-0.5">Cash/Check</h4>
                       <p className="text-brand-900 font-semibold text-base sm:text-lg">Chapel Of Praise Church</p>
+                      <p className="text-brand-900 text-sm">15821 Greenwood Road, South Holland, IL 60473</p>
                     </div>
                   </div>
 

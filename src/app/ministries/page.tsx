@@ -8,7 +8,7 @@ import { supabase } from "../../lib/supabase";
 export const dynamic = 'force-dynamic';
 
 export default async function Ministries() {
-  const { data: ministriesData } = await supabase.from('ministries').select('*').order('created_at', { ascending: true });
+  const { data: ministriesData } = await supabase.from('ministries').select('*').order('created_at', { ascending: false });
   const ministries = ministriesData || [];
 
   return (
