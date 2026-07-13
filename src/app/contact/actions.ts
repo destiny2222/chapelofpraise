@@ -25,7 +25,7 @@ export async function submitContactForm(formData: FormData) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Chapel of Praise <onboarding@resend.dev>', // resend.dev is allowed for testing
-      to: ['niceboy235461@gmail.com'], // Using your registered Resend email for testing
+      to: ['checutility@gmail.com'], // Using your registered Resend email for testing
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Message from Chapel of Praise Website</h2>

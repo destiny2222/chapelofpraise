@@ -53,7 +53,7 @@ export default async function LSM() {
                 About LSM
               </p>
               <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-brand-900 leading-[1.15] mb-8">
-                Founded by Pastor & Prophetess Talabi
+                Founded by President Pastor A.A Talab V.Preaident Mabel Talabi
               </h2>
               
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light mb-10">
