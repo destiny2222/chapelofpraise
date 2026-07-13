@@ -49,26 +49,26 @@ export default async function LSM() {
 
             {/* Text Side */}
             <FadeIn delay={0.2} className="flex flex-col justify-center py-6">
-              <p className="text-accent-500 text-xs font-bold tracking-[0.25em] uppercase mb-4">
+              <p className="text-accent-500 text-xl font-bold tracking-[0.25em] uppercase mb-5">
                 About LSM
               </p>
-              <p className="font-serif text-3xl md:text-3xl lg:text-3xl font-bold text-brand-900 leading-[1.15] mb-8">
+              <p className="text-sm md:text-sm lg:text-[12px] font-mono text-brand-900 pb-1">
                 Founded by
               </p>
 
-              <div className="space-y-4 text-left pb-4">
+              <div className="space-y-4 text-left pb-8">
                 <p className="text-slate-600 text-sm sm:text-base font-light mb-0">
-                  <strong className="text-brand-900 font-bold">Pastor A. A. Talabi, President</strong>    
+                  <strong className="text-brand-900 font-bold text-xl">Pastor A. A. Talabi, President</strong>    
                 </p>
                 <p className="text-slate-700 mx-1 sm:mx-2">MA Ministry, Moody Theological Seminary</p> 
                 <p className="text-slate-600 text-sm sm:text-base font-light mb-0">
-                  <strong className="text-brand-900 font-bold">Pastor Mabel Talabi, Vice President</strong> 
+                  <strong className="text-brand-900 font-bold text-xl">Pastor Mabel Talabi, Vice President</strong> 
                 </p>
-                <p className="text-slate-700 mx-1 sm:mx-2">M Div Urban Ministry, Trinity Theological University.</p>
+                <p className="text-slate-700 mx-1 sm:mx-2">M Div Urban Ministry, Trinity Theological University</p>
               </div>
 
               
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light mb-10">
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-ssemibold mb-10">
                 <p>
                   The Lighthouse School of Ministry was established by Pastor & Prophetess Talabi through the leading and direction of the Holy Spirit, to train and equip lay church members for effective service alongside the leader, pastor, and pastor's wife in the local church.
                 </p>
