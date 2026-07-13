@@ -52,22 +52,25 @@ export default async function LSM() {
               <p className="text-accent-500 text-xs font-bold tracking-[0.25em] uppercase mb-4">
                 About LSM
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-brand-900 leading-[1.15] mb-8">
-                Founded by President Pastor A.A Talab V.Preaident Mabel Talabi
-              </h2>
+              <p className="font-serif text-3xl md:text-3xl lg:text-3xl font-bold text-brand-900 leading-[1.15] mb-8">
+                Founded by
+              </p>
+
+              <div className="space-y-4 text-left pb-4">
+                <p className="text-slate-600 text-sm sm:text-base font-light mb-0">
+                  <strong className="text-brand-900 font-bold">Pastor A. A. Talabi, President</strong>    
+                </p>
+                <p className="text-slate-700 mx-1 sm:mx-2">MA Ministry, Moody Theological Seminary</p> 
+                <p className="text-slate-600 text-sm sm:text-base font-light mb-0">
+                  <strong className="text-brand-900 font-bold">Pastor Mabel Talabi, Vice President</strong> 
+                </p>
+                <p className="text-slate-700 mx-1 sm:mx-2">M Div Urban Ministry, Trinity Theological University.</p>
+              </div>
+
               
               <div className="space-y-6 text-lg text-slate-600 leading-relaxed font-light mb-10">
                 <p>
                   The Lighthouse School of Ministry was established by Pastor & Prophetess Talabi through the leading and direction of the Holy Spirit, to train and equip lay church members for effective service alongside the leader, pastor, and pastor's wife in the local church.
-                </p>
-              </div>
-
-              <div className="space-y-4 text-left border-t border-slate-100 pt-8">
-                <p className="text-slate-600 text-sm sm:text-base font-light">
-                  <strong className="text-brand-900 font-bold">Pastor A. A. Talabi</strong> <span className="text-slate-300 mx-1 sm:mx-2">—</span> MA Ministry, Moody Theological Seminary (2005)
-                </p>
-                <p className="text-slate-600 text-sm sm:text-base font-light">
-                  <strong className="text-brand-900 font-bold">Pastor Mabel Talabi</strong> <span className="text-slate-300 mx-1 sm:mx-2">—</span> M.Div Urban Ministry, Trinity Theological University
                 </p>
               </div>
             </FadeIn>
