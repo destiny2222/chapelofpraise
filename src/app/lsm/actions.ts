@@ -25,7 +25,7 @@ export async function submitLsmRegistration(formData: FormData) {
   try {
     const { data, error } = await resend.emails.send({
       from: `${firstName} ${lastName} <onboarding@resend.dev>`,
-      reply_to: email,
+      replyTo: email,
       to: ['onenightcrusade@gmail.com'], // Using the registered Resend email
       subject: `New LSM Registration from ${firstName} ${lastName}`,
       html: `
