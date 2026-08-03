@@ -110,6 +110,9 @@ export default function Navbar() {
           <Link href="/contact" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 py-2 transition-colors">
             Contact
           </Link>
+          <Link href="/events" className="text-sm font-bold uppercase tracking-wider text-white hover:text-accent-500 py-2 transition-colors">
+            Events
+          </Link>
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-x-4 items-center">
@@ -192,6 +195,9 @@ export default function Navbar() {
             </Link>
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
               Contact 
+            </Link>
+            <Link href="/events" onClick={() => setIsMobileMenuOpen(false)} className="animate-menu-item transition-colors duration-300 text-2xl sm:text-3xl font-bold tracking-wide text-white hover:text-accent-500 flex items-center gap-3" >
+              Events
             </Link>
             {/* live stream dropdown */}
             <div className="flex w-full max-w-xs flex-col items-center">
