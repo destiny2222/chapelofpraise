@@ -89,7 +89,7 @@ export default async function EventsAdmin({ searchParams }: PageProps) {
                   <div className="text-sm text-slate-500 truncate max-w-xs">{event.description}</div>
                 </td>
                 <td className="p-4 text-sm text-slate-600">
-                  <div>{new Date(`${event.date.split('T')[0]}T12:00:00`).toLocaleDateString()}</div>
+                  <div>{event.date ? new Date(`${event.date.split('T')[0]}T12:00:00`).toLocaleDateString() : 'TBA'}</div>
                   <div className="text-xs text-slate-400">{event.time}</div>
                 </td>
                 <td className="p-4 text-sm text-slate-600">{event.location}</td>
