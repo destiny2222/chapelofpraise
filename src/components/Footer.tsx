@@ -60,6 +60,7 @@ export default function Footer() {
                 { name: 'Ministries', href: '/ministries' },
                 { name: 'LSM', href: '/lsm' },
                 { name: 'Contact Us', href: '/contact' },
+                {name: 'Events', href: '/events'}
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="group flex items-center text-sm text-slate-400 hover:text-accent-500 transition-colors">
