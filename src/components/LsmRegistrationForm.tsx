@@ -3,13 +3,29 @@
 import { useState } from 'react';
 import { submitLsmRegistration } from '../app/lsm/actions';
 import SubmitButton from './SubmitButton';
+import ReCaptcha from './ReCaptcha';
 
 export default function LsmRegistrationForm() {
   const [status, setStatus] = useState<{ error?: string; success?: boolean; warning?: string } | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [recaptchaKey, setRecaptchaKey] = useState<number>(0);
 
   async function action(formData: FormData) {
     setStatus(null);
+
+    if (!recaptchaToken) {
+      setStatus({ error: 'Please check the "I\'m not a robot" box.' });
+      return;
+    }
+
     const result = await submitLsmRegistration(formData);
+    
+    if (result?.error) {
+      // Reset the reCAPTCHA widget on error so the user has to solve it again
+      setRecaptchaKey(prev => prev + 1);
+      setRecaptchaToken(null);
+    }
+
     setStatus(result);
   }
 
@@ -65,6 +81,9 @@ export default function LsmRegistrationForm() {
         <label className="text-sm font-bold text-brand-900">Prayer Request</label>
         <textarea name="requestBody" rows={6} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-all bg-white resize-none"></textarea>
       </div>
+
+      <ReCaptcha key={recaptchaKey} onChange={setRecaptchaToken} />
+      <input type="hidden" name="g-recaptcha-response" value={recaptchaToken || ''} />
 
       <div className="pt-4 text-left">
         <SubmitButton 

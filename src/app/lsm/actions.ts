@@ -1,6 +1,7 @@
 'use server'
 
 import { Resend } from 'resend';
+import { verifyRecaptcha } from '../../lib/recaptcha';
 
 const resendApiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
@@ -12,9 +13,15 @@ export async function submitLsmRegistration(formData: FormData) {
   const phone = formData.get('phone') as string;
   const requestTitle = formData.get('requestTitle') as string;
   const requestBody = formData.get('requestBody') as string;
+  const recaptchaToken = formData.get('g-recaptcha-response') as string;
 
   if (!firstName || !lastName || !email || !phone) {
     return { error: 'Please fill out all required fields.' };
+  }
+
+  const isValidRecaptcha = await verifyRecaptcha(recaptchaToken);
+  if (!isValidRecaptcha) {
+    return { error: 'reCAPTCHA verification failed. Please check the "I\'m not a robot" box and try again.' };
   }
 
   if (!resend) {
