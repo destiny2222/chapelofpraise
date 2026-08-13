@@ -28,7 +28,7 @@ export default function ReCaptcha({ onChange }: ReCaptchaProps) {
       if (window.grecaptcha && recaptchaRef.current && widgetIdRef.current === null) {
         try {
           widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+            sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
             callback: (token: string) => {
               onChange(token);
             },
